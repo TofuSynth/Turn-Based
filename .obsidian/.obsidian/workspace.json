@@ -1,25 +1,18 @@
 {
   "main": {
-    "id": "58aaa545b080ff98",
+    "id": "5142a54f3b420068",
     "type": "split",
     "children": [
       {
-        "id": "2591326ef86d85f4",
+        "id": "4abfe326894f8298",
         "type": "tabs",
         "children": [
           {
-            "id": "aae022a30b0a7063",
+            "id": "a81fd168b1704827",
             "type": "leaf",
             "state": {
-              "type": "canvas",
-              "state": {
-                "file": "Mind Map.canvas",
-                "viewState": {
-                  "x": 1475.8019075776642,
-                  "y": 383.49804087619555,
-                  "zoom": -1.6666666666666667
-                }
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -28,15 +21,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "3b07306c24e1433a",
+    "id": "e6ff32992f2d96fc",
     "type": "split",
     "children": [
       {
-        "id": "86633f0fc3a853a9",
+        "id": "8dccd7930821c1c2",
         "type": "tabs",
         "children": [
           {
-            "id": "a7825af1c171c8ab",
+            "id": "f042c70857330e6d",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -46,7 +39,7 @@
             }
           },
           {
-            "id": "2615ff3ea6075a16",
+            "id": "c54e3bf5545f5631",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -61,7 +54,7 @@
             }
           },
           {
-            "id": "2dc689821e07e0ef",
+            "id": "b9d432a38a2e3ccf",
             "type": "leaf",
             "state": {
               "type": "starred",
@@ -75,20 +68,19 @@
     "width": 300
   },
   "right": {
-    "id": "9543f83aecaaa611",
+    "id": "f8ac59ae4d3c4eee",
     "type": "split",
     "children": [
       {
-        "id": "9088610167f4a5d4",
+        "id": "a5da044049b1b73c",
         "type": "tabs",
         "children": [
           {
-            "id": "9b2f79f54f4c2e97",
+            "id": "1512dc1aa9f47fea",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Mind Map.canvas",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,19 +92,18 @@
             }
           },
           {
-            "id": "d47dfd1e23e5c398",
+            "id": "0e2a552876448041",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Mind Map.canvas",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           },
           {
-            "id": "df9a370e0b7ac737",
+            "id": "34cf702411fdaef7",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -123,13 +114,11 @@
             }
           },
           {
-            "id": "8a21612396a602c1",
+            "id": "aa0da6f8756ee6e7",
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Mind Map.canvas"
-              }
+              "state": {}
             }
           }
         ]
@@ -149,8 +138,6 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "aae022a30b0a7063",
-  "lastOpenFiles": [
-    "Mind Map.canvas"
-  ]
+  "active": "a81fd168b1704827",
+  "lastOpenFiles": []
 }
