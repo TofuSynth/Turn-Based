@@ -21,8 +21,81 @@
                 }
               }
             }
+          },
+          {
+            "id": "8cee8ecbc4894501",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Notes from Irshad/Services/1. Service Locator.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "778a659cc3144617",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Notes from Irshad/Working with Types/2. Variable Generics, or Templating.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "3b629ffa1eeb294c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Notes from Irshad/Inheritance/Class Inheritance.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "01d856a1df752b10",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Notes from Irshad/Services/1. Service Locator.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "42f0f2cc932617f5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Notes from Irshad/Services/1. Service Locator.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f82c7e3f2e82158d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Notes from Irshad/Inheritance/Class Inheritance.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -88,7 +161,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Mind Map.canvas",
+                "file": "Notes from Irshad/Services/1. Service Locator.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,7 +178,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Mind Map.canvas",
+                "file": "Notes from Irshad/Services/1. Service Locator.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -128,7 +201,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Mind Map.canvas"
+                "file": "Notes from Irshad/Services/1. Service Locator.md"
               }
             }
           }
@@ -149,8 +222,19 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "aae022a30b0a7063",
+  "active": "01d856a1df752b10",
   "lastOpenFiles": [
-    "Mind Map.canvas"
+    "Notes from Irshad/Inheritance/Class Inheritance.md",
+    "Notes from Irshad/Services/2. Complex Services.md",
+    "Notes from Irshad/Working with Types/1. Generics and Type Variables.md",
+    "Notes from Irshad/Working with Types/2. Variable Generics, or Templating.md",
+    "Notes from Irshad/Working with Types/3. Generic Constraints.md",
+    "Notes from Irshad/Services/1. Service Locator.md",
+    "Notes from Irshad/Services",
+    "Notes from Irshad/Inheritance",
+    "Notes from Irshad/Untitled.md",
+    "Notes from Irshad/Working with Types",
+    "Mind Map.canvas",
+    "Notes from Irshad"
   ]
 }
