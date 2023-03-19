@@ -14,13 +14,8 @@ namespace Tofu.TurnBased.Services
         
         void Awake()
         {
-            m_instance = this;
-        }
-
-        public static void Register<TServiceType>(TServiceType service) where TServiceType : ServiceBase
-        {
-            Type type = typeof(TServiceType);
-            m_instance.m_services.Add(type, service); 
+            m_instance = this; 
+            DontDestroyOnLoad(this.gameObject);
         }
 
         public static void Register(Type registrationType,ServiceBase service)
@@ -28,5 +23,18 @@ namespace Tofu.TurnBased.Services
             m_instance.m_services.Add(registrationType, service);
         }
         
+        public static void Deregister(Type registrationType)
+        {
+            m_instance.m_services.Remove(registrationType);
+        }
+
+        public static TServiceType GetService<TServiceType>() where TServiceType : ServiceBase
+        {
+            if ( m_instance.m_services.ContainsKey(typeof(TServiceType)))
+            {
+                return m_instance.m_services[typeof(TServiceType)] as TServiceType;
+            }
+            return null;
+        }
     }
 }

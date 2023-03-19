@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "25291bfc72145f85",
+        "id": "020ffda77a5251d6",
         "type": "tabs",
         "children": [
           {
-            "id": "522a24bf8c9f0159",
+            "id": "e0c52bfd0c9e7630",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Obsidian/Notes from Irshad/Services/2. Complex Services.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Obsidian/Notes from Irshad/Services/2. Complex Services.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Obsidian/Notes from Irshad/Services/2. Complex Services.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Obsidian/Notes from Irshad/Services/2. Complex Services.md"
+              }
             }
           }
         ]
@@ -138,6 +146,25 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "522a24bf8c9f0159",
-  "lastOpenFiles": []
+  "active": "e0c52bfd0c9e7630",
+  "lastOpenFiles": [
+    "Library/ProtocolInstance.json",
+    "Library/Artifacts/57/5783cddbea38d8e6fc882b96e23981b3",
+    "Library/Bee/backend_profiler0.traceevents",
+    "Library/Bee/TundraBuildState.state",
+    "Library/Artifacts/4e/4eefea1d3f5655dbb65113936e6c174b",
+    "Library/TempArtifacts/Primary/fa31361c6dc6d364dab6a03d3883ea0b",
+    "Assets/Scripts/Services/ServiceLocator.cs~",
+    "Obsidian/Notes from Irshad/Services/1. Service Locator.md",
+    "Library/Artifacts/9b/9b7af6faf3559c635bfdbbc129c697df",
+    "Library/Artifacts/ea/eaba8a7c064ae844ac04288637d0a04e",
+    "Library/Artifacts/90/9047c164694a130d06792dd3e469ef53",
+    "Library/Artifacts/c6/c6ab6ed9762c9a0b29030fcb5179e423",
+    "Obsidian/Notes from Irshad/Inheritance/Class Inheritance.md",
+    "Obsidian/Notes from Irshad/Working with Types/3. Generic Constraints.md",
+    "Obsidian/Notes from Irshad/Working with Types/2. Variable Generics, or Templating.md",
+    "Obsidian/Notes from Irshad/Working with Types/1. Generics and Type Variables.md",
+    "Obsidian/Notes from Irshad/Services/2. Complex Services.md",
+    "Obsidian/Mind Map.canvas"
+  ]
 }
