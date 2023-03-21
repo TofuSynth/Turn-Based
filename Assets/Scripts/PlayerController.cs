@@ -6,16 +6,34 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private ControlsService controlsService = ServiceLocator.GetService<ControlsService>();
+    private ControlsService m_controlsService;
+    [SerializeField] private int m_speed;
+    private Rigidbody m_playerRigidBody;
+    void Start()
+    {
+        m_controlsService = ServiceLocator.GetService<ControlsService>();
+        m_playerRigidBody = this.GetComponent<Rigidbody>();
+    }
 
-    
+    void Update()
+    {
+        Movement();
+    }
+
     void Movement()
     {
         Vector3 inputVector = Vector3.zero;
-        float forwardMovement = Convert.ToInt32(controlsService.isForwardDown) - 
-                                Convert.ToInt32(controlsService.isBackDown);
-        float sideMovement = Convert.ToInt32(controlsService.isRightDown) -
-                             Convert.ToInt32((controlsService.isLeftDown));
+        float forwardMovement = Convert.ToInt32(m_controlsService.isForwardDown) - 
+                                Convert.ToInt32(m_controlsService.isBackDown);
+        float sideMovement = Convert.ToInt32(m_controlsService.isRightDown) -
+                             Convert.ToInt32(m_controlsService.isLeftDown);
+        
+        inputVector += new Vector3(this.transform.forward.x, 0, this.transform.forward.z).normalized
+                       * forwardMovement;
+        inputVector += new Vector3(this.transform.right.x, 0, this.transform.right.z).normalized
+                       * sideMovement;
+        inputVector = Vector3.Normalize(inputVector);
+        m_playerRigidBody.AddForce(inputVector * (m_speed * Time.deltaTime));
 
     }
 }
