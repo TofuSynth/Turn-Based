@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Obsidian/Notes from Irshad/Services/2. Complex Services.md",
+                "file": "Obsidian/Notes from Irshad/Services/1. Service Locator.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Obsidian/Notes from Irshad/Services/2. Complex Services.md",
+                "file": "Obsidian/Notes from Irshad/Services/1. Service Locator.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Obsidian/Notes from Irshad/Services/2. Complex Services.md",
+                "file": "Obsidian/Notes from Irshad/Services/1. Service Locator.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Obsidian/Notes from Irshad/Services/2. Complex Services.md"
+                "file": "Obsidian/Notes from Irshad/Services/1. Service Locator.md"
               }
             }
           }
@@ -148,23 +148,23 @@
   },
   "active": "e0c52bfd0c9e7630",
   "lastOpenFiles": [
-    "Temp/ADB-Refresh85537897fcea67f418761a9c9d2c9b6b",
-    "Temp/UnityTempFile-b7d087ea8c9528d4b9f402600afc7e70",
     "Library/ProtocolInstance.json",
-    "Temp/UnityTempFile-61cc7175c9be84747816c011a05e57de",
-    "Temp/UnityTempFile-415b2027e12355747b0ce204732c39fc",
-    "Temp/UnityTempFile-aa9e17dc9c49c7a4c9a04abcccc972e5",
-    "Temp/UnityTempFile-679341a186fcbcc47a5bf35fd0a2b98d",
-    "Library/Artifacts/41/411c72c641b1303119e919f7b9f664f1",
-    "Library/Artifacts/77/779e88bf76d706b9a6d96970b8fd7cf7",
-    "Temp/UnityTempFile-2e82a295a223ffd4596c49e2b105381b",
-    "Library/Artifacts/63/63ba8d48c70b160b82b21eba10a95752",
+    "Library/Artifacts/f3/f3e33a5def3971d632fe974b69c6c419",
+    "Assets/Scripts/CameraController.cs~",
+    "Temp/UnityTempFile-25e60ca4ae2159244a3f87950f8aaa74",
+    "Temp/UnityTempFile-7f9d649d43a259c42bee672e67810e08",
+    "Library/Artifacts/19/19524cde24e5f41927979666bf913475",
+    "Temp/UnityTempFile-25740b71b6e8eef4c91f0de615917696",
+    "Library/Artifacts/a9/a90be0f84f6e34b5d57e6e6e8459e2d0",
+    "Library/Artifacts/0e/0ed8a07ad1a28208594d64d2850a8bae",
+    "Temp/UnityTempFile-086683604766fea48a222c1592c39770",
+    "Library/Artifacts/a3/a3da7ca8c6d7787066cd20468819308d",
+    "Obsidian/Mind Map.canvas",
+    "Obsidian/Notes from Irshad/Services/2. Complex Services.md",
     "Obsidian/Notes from Irshad/Services/1. Service Locator.md",
     "Obsidian/Notes from Irshad/Inheritance/Class Inheritance.md",
     "Obsidian/Notes from Irshad/Working with Types/3. Generic Constraints.md",
     "Obsidian/Notes from Irshad/Working with Types/2. Variable Generics, or Templating.md",
-    "Obsidian/Notes from Irshad/Working with Types/1. Generics and Type Variables.md",
-    "Obsidian/Notes from Irshad/Services/2. Complex Services.md",
-    "Obsidian/Mind Map.canvas"
+    "Obsidian/Notes from Irshad/Working with Types/1. Generics and Type Variables.md"
   ]
 }
