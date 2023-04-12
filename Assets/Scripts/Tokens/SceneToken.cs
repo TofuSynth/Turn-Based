@@ -14,11 +14,7 @@ namespace Tofu.TurnBased.SceneManagement
         {
             get { return targetSceneName; }
         }
-
-        public void LoadScene()
-        {
-            SceneManager.LoadScene(targetSceneName);
-        }
+        
 
 #if UNITY_EDITOR
         [SerializeField] private SceneAsset targetScene;
