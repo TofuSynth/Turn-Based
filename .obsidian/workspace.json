@@ -11,11 +11,14 @@
             "id": "e0c52bfd0c9e7630",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "canvas",
               "state": {
-                "file": "Obsidian/Notes from Irshad/Services/1. Service Locator.md",
-                "mode": "source",
-                "source": false
+                "file": "Obsidian/Mind Map.canvas",
+                "viewState": {
+                  "x": 2828,
+                  "y": -40,
+                  "zoom": -3.5506834185624014
+                }
               }
             }
           }
@@ -85,7 +88,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Obsidian/Notes from Irshad/Services/1. Service Locator.md",
+                "file": "Obsidian/Mind Map.canvas",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +105,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Obsidian/Notes from Irshad/Services/1. Service Locator.md",
+                "file": "Obsidian/Mind Map.canvas",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +128,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Obsidian/Notes from Irshad/Services/1. Service Locator.md"
+                "file": "Obsidian/Mind Map.canvas"
               }
             }
           }
@@ -148,6 +151,7 @@
   },
   "active": "e0c52bfd0c9e7630",
   "lastOpenFiles": [
+    "Obsidian/Notes from Irshad/Services/1. Service Locator.md",
     "Library/ProtocolInstance.json",
     "Temp/UnityTempFile-3c359eb6cf913944e848d2a6c186816a",
     "Temp/UnityTempFile-c071314cae89cc748977d188a667655b",
@@ -158,10 +162,8 @@
     "Temp/ADB-Refresh18f4abe0dfe3b5745a8b4fc999537987",
     "Temp/UnityTempFile-f0a7ca3f1b7fed94d9f1b8b38bff6dc2",
     "Temp/UnityTempFile-b1ce1e9af937cff408a5b3ccb310ed82",
-    "Library/Artifacts/25/25dc2ec6084a9647d6045de8c5cca4db",
     "Obsidian/Mind Map.canvas",
     "Obsidian/Notes from Irshad/Services/2. Complex Services.md",
-    "Obsidian/Notes from Irshad/Services/1. Service Locator.md",
     "Obsidian/Notes from Irshad/Inheritance/Class Inheritance.md",
     "Obsidian/Notes from Irshad/Working with Types/3. Generic Constraints.md",
     "Obsidian/Notes from Irshad/Working with Types/2. Variable Generics, or Templating.md",

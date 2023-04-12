@@ -18,8 +18,8 @@ public class ControlsService : ServiceBase<ControlsService>
         isBackDown = Input.GetKey("s");
         isRightDown = Input.GetKey("d");
         isLeftDown = Input.GetKey("a");
-        isInteractDown = Input.GetKey("e");
-        isCancelDown = Input.GetKey("q");
-        isMenuDown = Input.GetKey("tab");
+        isInteractDown = Input.GetKeyDown("e");
+        isCancelDown = Input.GetKeyDown("q");
+        isMenuDown = Input.GetKeyDown("tab");
     }
 }
