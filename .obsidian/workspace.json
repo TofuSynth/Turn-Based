@@ -15,9 +15,9 @@
               "state": {
                 "file": "Obsidian/Mind Map.canvas",
                 "viewState": {
-                  "x": 2828,
-                  "y": -40,
-                  "zoom": -3.5506834185624014
+                  "x": 1712.0373948138172,
+                  "y": 534.8124728574052,
+                  "zoom": -2.3242391675712746
                 }
               }
             }
@@ -151,20 +151,31 @@
   },
   "active": "e0c52bfd0c9e7630",
   "lastOpenFiles": [
-    "Obsidian/Notes from Irshad/Services/1. Service Locator.md",
-    "Library/ProtocolInstance.json",
-    "Temp/UnityTempFile-3c359eb6cf913944e848d2a6c186816a",
-    "Temp/UnityTempFile-c071314cae89cc748977d188a667655b",
-    "Library/Search/propertyAliases.db_5774b4bb9b7d40c0806943b887ba2779_temp",
-    "Temp/UnityTempFile-3b4e149b719bbaf4fa4a459e1d96d4ec",
-    "Temp/UnityTempFile-17e2318566aefe64f9357b7c040c1fbe",
-    "Temp/UnityTempFile-9521a844ca4f96e4787b99be15a12bbe",
-    "Temp/ADB-Refresh18f4abe0dfe3b5745a8b4fc999537987",
-    "Temp/UnityTempFile-f0a7ca3f1b7fed94d9f1b8b38bff6dc2",
-    "Temp/UnityTempFile-b1ce1e9af937cff408a5b3ccb310ed82",
-    "Obsidian/Mind Map.canvas",
-    "Obsidian/Notes from Irshad/Services/2. Complex Services.md",
+    "Temp/UnityTempFile-392a9639e6b52b14c8f8d86d6ced62a9",
+    "Temp/UnityTempFile-3dcedcc8f0155764196f62512b7924a2",
+    "Temp/UnityTempFile-3dc1e7e311ccf024f99daeef6224ff22",
+    "Library/Search/propertyAliases.db_e3f47115a07c440a850a7143906a9e73_temp",
+    "Temp/UnityTempFile-8912e659ae7baae4284f0087da5cd75c",
+    "Temp/UnityTempFile-03f39cd3511c24349bf7547f45a85524",
+    "Temp/UnityTempFile-c00ce7a7fda0e6e468de86be92d65440",
+    "Temp/UnityTempFile-af9d396a98b814f448bf67d5b4ee5d3f",
+    "Temp/UnityTempFile-3108eb80a3104674c9b27612ae148dfc",
+    "Library/Search/propertyDatabase.db_f3e7d8a93d564ceea45681faa8a9950e_temp",
+    "Temp/__Backupscenes/0.backup",
+    "Assets/Models/Animations/KayKit Brand Resouces/KayKit_logo_white.png",
+    "Assets/Models/Animations/KayKit Brand Resouces/KayKit_logo_red.png",
+    "Assets/Models/Animations/KayKit Brand Resouces/KayKit_logo_black.png",
+    "Assets/Models/Animations/KayKit Brand Resouces/KayKit_logoVariation_white.png",
+    "Assets/Models/Animations/KayKit Brand Resouces/KayKit_logoVariation_red.png",
+    "Assets/Models/Animations/KayKit Brand Resouces/KayKit_logoVariation_black.png",
+    "Assets/Models/Animations/KayKit Brand Resouces/KayKit_logo.png",
+    "Assets/Models/Dungeon stuff/Samples/Sample3.png",
+    "Assets/Models/Dungeon stuff/Samples/Sample2.png",
+    "Assets/Models/Dungeon stuff/Samples/Sample1.png",
     "Obsidian/Notes from Irshad/Inheritance/Class Inheritance.md",
+    "Obsidian/Mind Map.canvas",
+    "Obsidian/Notes from Irshad/Services/1. Service Locator.md",
+    "Obsidian/Notes from Irshad/Services/2. Complex Services.md",
     "Obsidian/Notes from Irshad/Working with Types/3. Generic Constraints.md",
     "Obsidian/Notes from Irshad/Working with Types/2. Variable Generics, or Templating.md",
     "Obsidian/Notes from Irshad/Working with Types/1. Generics and Type Variables.md"
