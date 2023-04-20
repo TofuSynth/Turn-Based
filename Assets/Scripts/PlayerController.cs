@@ -36,6 +36,18 @@ public class PlayerController : MonoBehaviour
         inputVector = Vector3.Normalize(inputVector);
         
         m_playerRigidBody.AddForce(inputVector * (m_speed * Time.deltaTime));
-
+        
+        if (inputVector.x != 0 || inputVector.z != 0)
+        {
+            if (m_playerRigidBody.velocity.sqrMagnitude > 1)
+            {
+                transform.rotation = Quaternion.LookRotation(m_playerRigidBody.velocity);
+            }
+            //animations.Play("KayKit Animated Character|Walk");
+        }
+        else
+        {
+            //animations.Play(("KayKit Animated Character|Idle"));
+        }
     }
 }
