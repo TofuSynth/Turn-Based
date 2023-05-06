@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int m_speed;
     [SerializeField] private GameObject m_cameraHandler;
     private Rigidbody m_playerRigidBody;
+    private Animator m_animations;
     void Start()
     {
         m_controlsService = ServiceLocator.GetService<ControlsService>();
@@ -43,11 +44,11 @@ public class PlayerController : MonoBehaviour
             {
                 transform.rotation = Quaternion.LookRotation(m_playerRigidBody.velocity);
             }
-            //animations.Play("KayKit Animated Character|Walk");
+            m_animations.Play("KayKit Animated Character|Walk");
         }
         else
         {
-            //animations.Play(("KayKit Animated Character|Idle"));
+            m_animations.Play(("KayKit Animated Character|Idle"));
         }
     }
 }
