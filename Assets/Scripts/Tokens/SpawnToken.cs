@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace Tofu.TurnBased.SceneManagement
 {
-    [CreateAssetMenu(menuName = "Tokens/Door Token")]
-    public class DoorToken : ScriptableObject
+    [CreateAssetMenu(menuName = "Tokens/Spawn Token")]
+    public class SpawnToken : ScriptableObject
     {
         
     }

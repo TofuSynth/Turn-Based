@@ -8,19 +8,23 @@ namespace Tofu.TurnBased.SceneManagement
 {
     public class SceneTransitionInteractable : Interactable
     {
-        [SerializeField] private ScriptableObject m_targetScene;
-        [SerializeField] private ScriptableObject m_targetDoor;
+        [SerializeField] private SceneToken m_targetScene;
+        [SerializeField] private SpawnToken m_targetSpawn;
         private SceneTransitionSevice m_sceneTransitionService;
+        private TransitionSpawnService m_transitionSpawnService;
 
         protected override void Start()
         {
+            base.Start();
             m_sceneTransitionService = ServiceLocator.GetService<SceneTransitionSevice>();
+            m_transitionSpawnService = ServiceLocator.GetService<TransitionSpawnService>();
         }
 
         protected override void Interaction()
-        {
-            m_sceneTransitionService.targetScene = m_targetScene;
-            m_sceneTransitionService.targetDoor = m_targetDoor;
+        {   
+            m_transitionSpawnService.ClearSpawns();
+            m_sceneTransitionService.GoToNewScene(m_targetScene, m_targetSpawn);
+            m_transitionSpawnService.FillSpawnDictionary();
         }
 
     }
