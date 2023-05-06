@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     {
         m_controlsService = ServiceLocator.GetService<ControlsService>();
         m_playerRigidBody = this.GetComponent<Rigidbody>();
+        m_animations = this.GetComponentInChildren<Animator>();
     }
 
     void Update()
