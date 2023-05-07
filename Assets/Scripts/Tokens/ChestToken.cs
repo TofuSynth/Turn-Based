@@ -10,14 +10,14 @@ public class ChestToken : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetInt("chest" + this.GetInstanceID()) == 1;
+            return SaveData.GetBool("chest" + this.GetInstanceID());
         }
         set
         {
-            PlayerPrefs.SetFloat("chest" + this.GetInstanceID(), value?1:0);
-            PlayerPrefs.Save();
+            SaveData.SetBool("chest" + this.GetInstanceID(),true);
         }
     }
     
     [SerializeField] public string test = "potion";
 }
+

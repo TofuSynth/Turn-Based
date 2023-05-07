@@ -21,7 +21,6 @@ namespace Tofu.TurnBased.Chests
             
         }
         
-        
         protected override void Interaction()
         {
             if (!m_chestToken.isOpened)
