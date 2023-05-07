@@ -24,7 +24,7 @@ namespace Tofu.TurnBased.Chests
         
         protected override void Interaction()
         {
-            if (m_chestToken.isOpened == false)
+            if (!m_chestToken.isOpened)
             {
                 m_chestToken.isOpened = true;
                 m_chestTop.transform.Rotate(m_chestOpenAngle, 0, 0, Space.Self);
