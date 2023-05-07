@@ -6699,7 +6699,7 @@ GameObject:
   - component: {fileID: 1859311988}
   - component: {fileID: 1859311990}
   - component: {fileID: 1859311989}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: OverworldChest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
