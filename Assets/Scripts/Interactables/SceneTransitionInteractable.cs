@@ -11,8 +11,11 @@ namespace Tofu.TurnBased.SceneManagement
         [SerializeField] private SceneToken m_targetScene;
         [SerializeField] public SpawnToken m_targetSpawn;
         private SceneTransitionService m_sceneTransitionService;
+        public GameObject player
+        {
+            get { return m_player; }
+        }
         
-
         protected override void Start()
         {
             base.Start();

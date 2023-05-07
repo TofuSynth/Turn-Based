@@ -10,7 +10,7 @@ namespace Tofu.TurnBased.Interactables
     public class Interactable : MonoBehaviour
     {
         private ControlsService m_controlsService;
-        [SerializeField] private GameObject m_player;
+        [SerializeField] protected GameObject m_player;
         private bool m_isTriggerConditionMet = false;
 
         protected virtual void Start()
