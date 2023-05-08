@@ -18,6 +18,6 @@ public class ChestToken : ScriptableObject
         }
     }
     
-    [SerializeField] public string test = "potion";
+    
 }
 
