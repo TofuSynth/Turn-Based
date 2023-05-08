@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f2fab2d1911cdc4b81f629c5ca8ce88, type: 3}
+  m_Name: StartingQuest
+  m_EditorClassIdentifier: 
+  m_questName: Our Journey Begins
+  m_questProgress: 0
+  m_steps:
+  - m_description: I can see a house down the road, I should go see if anybody's
+      home. Perhaps they know about that dragon we've been chasing.
+    m_conditions:
+    - m_isConditionMet: 0
+      m_requiredKills: 0
+      m_enemyRequired: 
+      m_itemRequired: 
+      m_itemAmountRequired: 0
+      m_speakTo: King
+      m_areaVisited: 
+  - m_description: We met the king of this land! He explained that some skeletons
+      chased him out of his castle and he asked us to go clear it out for him. He
+      really could have been nicer though...
+    m_conditions:
+    - m_isConditionMet: 0
+      m_requiredKills: 1
+      m_enemyRequired: Skeleton Boss
+      m_itemRequired: 
+      m_itemAmountRequired: 0
+      m_speakTo: 
+      m_areaVisited: 
+  - m_description: We cleared out the castle! Now let's go see the King about our
+      reward.
+    m_conditions:
+    - m_isConditionMet: 0
+      m_requiredKills: 0
+      m_enemyRequired: 
+      m_itemRequired: 
+      m_itemAmountRequired: 0
+      m_speakTo: King
+      m_areaVisited: 
+  m_completedQuestDescription: The King was thrilled to get his castle back. He gave
+    us our reward and told us what he knew about the dragon we've been chasing. He
+    mentioned that the nearby town may have more info.
