@@ -7,16 +7,21 @@ namespace Tofu.TurnBased.Quests
 {
     public class QuestManagementService : ServiceBase<QuestManagementService>
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        private List<QuestToken> m_activeQuests;
+        private List<QuestToken> m_completedQuests;
 
+        public void AcquireNewQuest(QuestToken newQuest)
+        {
+            if (!m_activeQuests.Contains(newQuest))
+            {
+                m_activeQuests.Add(newQuest);
+            }
         }
 
-        // Update is called once per frame
-        void Update()
+        public void CompleteQuest(QuestToken completedQuest)
         {
-
+            m_activeQuests.Remove(completedQuest);
+            m_completedQuests.Add(completedQuest);
         }
     }
 }
