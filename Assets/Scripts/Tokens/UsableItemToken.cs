@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Tokens/Usable Item Token")]
 public class UsableItemToken : ScriptableObject
 {
-
     [SerializeField] private string m_itemName;
     public string ItemName
     {

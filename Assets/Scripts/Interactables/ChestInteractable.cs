@@ -24,7 +24,6 @@ namespace Tofu.TurnBased.Chests
             {
                 m_chestTop.transform.Rotate(m_chestOpenAngle, 0, 0, Space.Self);
             }
-            
         }
         
         protected override void Interaction()
