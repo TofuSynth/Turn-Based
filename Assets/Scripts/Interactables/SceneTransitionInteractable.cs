@@ -16,14 +16,14 @@ namespace Tofu.TurnBased.SceneManagement
             get { return m_player; }
         }
         
-        protected override void Start()
+        void Start()
         {
-            base.Start();
+            
             m_sceneTransitionService = ServiceLocator.GetService<SceneTransitionService>();
             m_sceneTransitionService.ReportSpawnTarget(this);
         }
 
-        protected override void Interaction()
+        public override void Interaction()
         {
             m_sceneTransitionService.GoToNewScene(m_targetScene, m_targetSpawn);
             

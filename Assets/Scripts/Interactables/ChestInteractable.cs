@@ -16,9 +16,9 @@ namespace Tofu.TurnBased.Chests
         [SerializeField] private float m_chestOpenAngle;
         private InventoryService m_inventoryService;
 
-        protected override void Start()
+        void Start()
         {
-            base.Start();
+            
             m_inventoryService = ServiceLocator.GetService<InventoryService>();
             if (m_chestToken.isOpened)
             {
@@ -26,7 +26,7 @@ namespace Tofu.TurnBased.Chests
             }
         }
         
-        protected override void Interaction()
+        public override void Interaction()
         {
             if (!m_chestToken.isOpened)
             {
