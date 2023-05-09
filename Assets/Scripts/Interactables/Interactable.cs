@@ -51,7 +51,7 @@ namespace Tofu.TurnBased.Interactables
             {
                 Ray InteractionCheck = new Ray(this.transform.position, this.transform.forward);
                 Debug.DrawRay(this.transform.position, this.transform.forward, Color.magenta, 120f);
-                if (Physics.Raycast(InteractionCheck, this.transform.position.z + 0.1f, player))
+                if (Physics.Raycast(InteractionCheck, 1.75f, player))
                 {
                     Interaction();
                 }

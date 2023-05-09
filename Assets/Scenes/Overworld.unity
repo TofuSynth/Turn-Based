@@ -6751,7 +6751,7 @@ MonoBehaviour:
   m_player: {fileID: 409007385}
   player:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_chestToken: {fileID: 11400000, guid: 030127bc2b84fb7458d2cafda51a773d, type: 2}
   m_Item: {fileID: 11400000, guid: 9343013b8aa97c443b78237ffcaf9f74, type: 2}
   m_itemAmount: 10
