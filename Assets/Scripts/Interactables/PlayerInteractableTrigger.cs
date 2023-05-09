@@ -26,9 +26,9 @@ namespace Tofu.TurnBased.Interactables
         {
             if (m_controlsService.isInteractDown)
             {
-                Ray InteractionCheck = new Ray(this.transform.position, this.transform.forward);
                 RaycastHit hitInfo;
-                if (Physics.Raycast(this.transform.position,this.transform.forward,out hitInfo,1.75f,m_interactables)) {
+                Vector3 m_rayStart = this.transform.position - this.transform.forward;
+                if (Physics.Raycast(m_rayStart ,this.transform.forward,out hitInfo,1.75f,m_interactables)) {
                     //hitInfo.collider.gameObject will get you access to the gameObject you've hit
                     Interactable interactable = hitInfo.collider.gameObject.GetComponent<Interactable>();
 
