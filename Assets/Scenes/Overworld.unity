@@ -6749,6 +6749,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_player: {fileID: 409007385}
+  interactables:
+    serializedVersion: 2
+    m_Bits: 4
   m_chestToken: {fileID: 11400000, guid: 030127bc2b84fb7458d2cafda51a773d, type: 2}
   m_Item: {fileID: 11400000, guid: 9343013b8aa97c443b78237ffcaf9f74, type: 2}
   m_itemAmount: 10
@@ -7151,6 +7154,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_player: {fileID: 409007385}
+  interactables:
+    serializedVersion: 2
+    m_Bits: 55
   m_targetScene: {fileID: 11400000, guid: 4900df1bd4dbf564880b836e52c4d61b, type: 2}
   m_targetSpawn: {fileID: 11400000, guid: f7cccbd9faa2b864d8bef4948ae6ee42, type: 2}
 --- !u!1001 &1977330425
@@ -7459,7 +7465,7 @@ GameObject:
   - component: {fileID: 2010496112}
   - component: {fileID: 2010496114}
   - component: {fileID: 2010496113}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: HouseDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7494,6 +7500,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_player: {fileID: 409007385}
+  interactables:
+    serializedVersion: 2
+    m_Bits: 55
   m_targetScene: {fileID: 11400000, guid: d7bbcd5bedab97f4b820f8d4971d3b8a, type: 2}
   m_targetSpawn: {fileID: 11400000, guid: 4be94d76e4042c1419430e8250537603, type: 2}
 --- !u!65 &2010496114

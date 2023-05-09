@@ -12,6 +12,7 @@ namespace Tofu.TurnBased.Interactables
         private ControlsService m_controlsService;
         [SerializeField] protected GameObject m_player;
         private bool m_isTriggerConditionMet = false;
+        public LayerMask interactables;
 
         protected virtual void Start()
         {
@@ -40,7 +41,20 @@ namespace Tofu.TurnBased.Interactables
             {
                 Interaction();
             }
+            InteractableRangeCheck();
+        }
 
+        private void InteractableRangeCheck()
+        {
+            if (m_controlsService.isInteractDown)
+            {
+                Ray InteractionCheck = new Ray(m_player.transform.position, m_player.transform.forward);
+                Debug.DrawRay(m_player.transform.position, m_player.transform.forward, Color.magenta, 120f);
+                if (Physics.Raycast(InteractionCheck, m_player.transform.position.z + 5f, interactables))
+                {
+                    Interaction();
+                }
+            }
         }
 
         protected virtual void Interaction()
