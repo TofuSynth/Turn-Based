@@ -12,4 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: BasicAccessories
   m_EditorClassIdentifier: Assembly-CSharp::AccessoryToken/WeaponToken
-  m_accessories: []
+  m_accessories:
+  - m_accesoryName: 
+    m_accessoryDescription: 
+    m_damage: 0
+    m_defense: 0
+    m_magicDefense: 0
+    m_magicIncreased: 0
+    m_wisdomIncreased: 0
+    m_speedIncreased: 0
+    m_luckIncreased: 0
+    m_buyPrice: 0
+    m_sellPrice: 0

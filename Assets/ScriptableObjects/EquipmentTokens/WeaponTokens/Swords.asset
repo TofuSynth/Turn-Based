@@ -12,8 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5177f5fe79a2e64479936fcf5af74480, type: 3}
   m_Name: Swords
   m_EditorClassIdentifier: 
-  m_weaponName: 
-  m_weaponDescription: 
-  m_weaponDamage: 0
-  m_statIncreased: 
-  m_statAmount: 0
+  m_weapons:
+  - m_weaponName: 
+    m_weaponDescription: 
+    m_damage: 0
+    m_magicIncreased: 0
+    m_statIncreased: 
+    m_statAmount: 0
+    m_buyPrice: 0
+    m_sellPrice: 0
+  - m_weaponName: 
+    m_weaponDescription: 
+    m_damage: 0
+    m_magicIncreased: 0
+    m_statIncreased: 
+    m_statAmount: 0
+    m_buyPrice: 0
+    m_sellPrice: 0

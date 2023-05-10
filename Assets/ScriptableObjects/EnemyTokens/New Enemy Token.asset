@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb8091fdb5afe874bab7bd11de32195f, type: 3}
+  m_Name: New Enemy Token
+  m_EditorClassIdentifier: 
+  m_enemyName: 
+  m_hP: 0
+  m_mP: 0
+  m_damage: 0
+  m_baseMagic: 0
+  m_wisdom: 0
+  m_defense: 0
+  m_magicDefense: 0
+  m_speed: 0
+  m_luck: 0
