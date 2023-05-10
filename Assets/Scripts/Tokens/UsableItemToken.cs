@@ -46,4 +46,14 @@ public class UsableItemToken : ScriptableObject
     {
         get { return m_curesSilence; }
     }
+    [SerializeField] private int m_buyPrice;
+    public int BuyPrice
+    {
+        get { return m_buyPrice; }
+    }
+    [SerializeField] private int m_sellPrice;
+    public int SellPrice
+    {
+        get { return m_sellPrice; }
+    }
 }

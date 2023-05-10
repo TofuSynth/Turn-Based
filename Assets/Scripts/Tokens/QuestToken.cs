@@ -60,6 +60,11 @@ public class QuestConditions
     {
         get { return m_isConditionMet; }
     }
+    [SerializeField] private QuestToken m_questCompleted;
+    public QuestToken QuestCompleted
+    {
+        get { return m_questCompleted; }
+    }
     [SerializeField] private int m_requiredKills;
     public int RequiredKills
     {
