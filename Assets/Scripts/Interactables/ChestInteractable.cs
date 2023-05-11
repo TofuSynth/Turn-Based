@@ -20,7 +20,7 @@ namespace Tofu.TurnBased.Chests
         {
             
             m_inventoryService = ServiceLocator.GetService<InventoryService>();
-            if (m_chestToken.isOpened)
+            if (m_chestToken.IsOpened)
             {
                 m_chestTop.transform.Rotate(m_chestOpenAngle, 0, 0, Space.Self);
             }
@@ -28,9 +28,9 @@ namespace Tofu.TurnBased.Chests
         
         public override void Interaction()
         {
-            if (!m_chestToken.isOpened)
+            if (!m_chestToken.IsOpened)
             {
-                m_chestToken.isOpened = true;
+                m_chestToken.IsOpened = true;
                 m_chestTop.transform.Rotate(m_chestOpenAngle, 0, 0, Space.Self);
                 m_inventoryService.AddItemToInventory(m_Item, m_itemAmount);
                 m_inventoryService.TestInventory();

@@ -4,20 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Tokens/Chest Token")]
-public class ChestToken : ScriptableObject
+public class ChestToken : BoolStateScriptableObject
 {
-    public bool isOpened
-    {
-        get
-        {
-            return SaveData.GetBool("chest" + this.GetInstanceID());
-        }
-        set
-        {
-            SaveData.SetBool("chest" + this.GetInstanceID(),true);
-        }
+    public bool IsOpened {
+        get { return SavedState; }
+        set { SavedState = value; }
     }
-    
-    
 }
+
 
