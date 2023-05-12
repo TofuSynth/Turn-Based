@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a4df309d30cd4047b0f07a3f62a5e17, type: 3}
-  m_Name: Test
+  m_Script: {fileID: 11500000, guid: 0124498765a899943aa2931fac30baf7, type: 3}
+  m_Name: CastleChest
   m_EditorClassIdentifier: 
-  targetSceneName: 
-  targetScene: {fileID: 102900000, guid: 6d20d22bb4c283144b29e7c1b251b4a7, type: 3}
