@@ -12,16 +12,30 @@ public class DialogueToken : ScriptableObject
     {
         get { return m_dialogueProgress; }
     }
-    [SerializeField] private List<Dialogue> m_dialogue;
+    [SerializeField] private List<Dialogue> m_dialogue = new List<Dialogue>();
     public List<Dialogue> Dialogue
     {
         get { return m_dialogue; }
     }
+    private void OnValidate()
+    {
+        //Loop through all Dialogue entries and assign their keys
+        for (int i = 0;i < Dialogue.Count;i++)
+        {
+            Dialogue[i].SetSaveKey("state",this.GetInstanceID(),"dialogue" + i);
+            
+            //Loop over each Dialogue's child Conversations and assign their keys
+            for (int j = 0; j < Dialogue[i].Conversations.Count; j++)
+            {
+                Dialogue[i].Conversations[j].SetSaveKey("state",this.GetInstanceID(),"dialogue" + i + ".conversation" + j);
+            }
+        }
+    }
 }
 [Serializable]
-public class Dialogue
+public class Dialogue : BoolStateObject
 {
-    [SerializeField] private List<DialogueConversations> m_conversations;
+    [SerializeField] private List<DialogueConversations> m_conversations = new List<DialogueConversations>();
     public List<DialogueConversations> Conversations
     {
         get { return m_conversations; }
@@ -33,7 +47,7 @@ public class Dialogue
 }
 
 [Serializable]
-public class DialogueConversations
+public class DialogueConversations : BoolStateObject
 {
     [SerializeField, Multiline(5)] private string m_dialogue;
     public string Description

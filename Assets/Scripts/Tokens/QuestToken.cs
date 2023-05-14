@@ -33,18 +33,25 @@ public class QuestToken : ScriptableObject
     {
         get { return m_completedQuestDescription; }
     }
+    private void OnValidate()
+    {
+        for (int i = 0;i < Steps.Count;i++)
+        {
+            Steps[i].SetSaveKey("state",this.GetInstanceID(),"steps" + i);
+        }
+    }
 }
 
 
 [Serializable]
-public class QuestStep
+public class QuestStep : BoolStateObject
 {
     [SerializeField, Multiline(5)] private string m_description;
     public string Description
     {
         get { return m_description; }
     }
-    [SerializeField] private List<QuestConditions> m_conditions;
+    [SerializeField] private List<QuestConditions> m_conditions = new List<QuestConditions>();
     public List<QuestConditions> Steps
     {
         get { return m_conditions; }
