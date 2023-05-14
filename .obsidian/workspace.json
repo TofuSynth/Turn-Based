@@ -21,8 +21,19 @@
                 }
               }
             }
+          },
+          {
+            "id": "5b8dbaa87d95f5c4",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.2.8"
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -157,7 +168,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "e0c52bfd0c9e7630",
+  "active": "5b8dbaa87d95f5c4",
   "lastOpenFiles": [
     "Library/TempArtifacts/Extra/6f765d411615e0344bfa55a2c01efa26",
     "Library/ProtocolInstance.json",
