@@ -4,51 +4,51 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Tokens/Dialog Token")]
-public class DialogToken : ScriptableObject
+[CreateAssetMenu(menuName = "Tokens/Dialogue Token")]
+public class DialogueToken : ScriptableObject
 {
-    [SerializeField, ReadOnly] private int m_dialogProgress;
-    public int QuestProgress
+    [SerializeField, ReadOnly] private int m_dialogueProgress;
+    public int DialogueProgress
     {
-        get { return m_dialogProgress; }
+        get { return m_dialogueProgress; }
     }
-    [SerializeField] private List<Dialog> m_dialog;
-    public List<Dialog> Dialog
+    [SerializeField] private List<Dialogue> m_dialogue;
+    public List<Dialogue> Dialogue
     {
-        get { return m_dialog; }
+        get { return m_dialogue; }
     }
 }
 [Serializable]
-public class Dialog
+public class Dialogue
 {
-    [SerializeField] private List<DialogConversations> m_conversations;
-    public List<DialogConversations> Conversations
+    [SerializeField] private List<DialogueConversations> m_conversations;
+    public List<DialogueConversations> Conversations
     {
         get { return m_conversations; }
     }
-    public int DialogTotalStages
+    public int DialogueTotalStages
     {
         get { return Conversations.Count; }
     }
 }
 
 [Serializable]
-public class DialogConversations
+public class DialogueConversations
 {
-    [SerializeField, Multiline(5)] private string m_dialog;
+    [SerializeField, Multiline(5)] private string m_dialogue;
     public string Description
     {
-        get { return m_dialog; }
+        get { return m_dialogue; }
     }
-    [SerializeField] private List<DialogConditions> m_conditions;
-    public List<DialogConditions> Steps
+    [SerializeField] private List<DialogueConditions> m_conditions;
+    public List<DialogueConditions> Steps
     {
         get { return m_conditions; }
     }
     
 }
 [Serializable]
-public class DialogConditions
+public class DialogueConditions
 {
     [SerializeField, ReadOnly] private bool m_isConditionMet;
     public bool IsConditionMet
