@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd159caeab6af74184efe831dfb290e, type: 3}
   m_Name: New Dialog Token
   m_EditorClassIdentifier: 
+  m_dialogProgress: 0
   m_dialog:
-  - m_dialogProgress: 0
-    m_conversations:
+  - m_conversations:
     - m_dialog: 
       m_conditions:
       - m_isConditionMet: 0
@@ -22,3 +22,4 @@ MonoBehaviour:
         m_itemRequired: 
         m_speakTo: 
         m_areaVisited: 
+  - m_conversations: []

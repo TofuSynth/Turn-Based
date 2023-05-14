@@ -7,16 +7,20 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Tokens/Dialog Token")]
 public class DialogToken : ScriptableObject
 {
-    [SerializeField] private List<Dialog> m_dialog;
-}
-[Serializable]
-public class Dialog
-{
     [SerializeField, ReadOnly] private int m_dialogProgress;
     public int QuestProgress
     {
         get { return m_dialogProgress; }
     }
+    [SerializeField] private List<Dialog> m_dialog;
+    public List<Dialog> Dialog
+    {
+        get { return m_dialog; }
+    }
+}
+[Serializable]
+public class Dialog
+{
     [SerializeField] private List<DialogConversations> m_conversations;
     public List<DialogConversations> Conversations
     {
