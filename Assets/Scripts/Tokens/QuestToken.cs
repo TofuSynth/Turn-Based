@@ -58,29 +58,33 @@ public class QuestStep : BoolStateObject
 [Serializable]
 public class QuestConditions
 {
-    [SerializeField] private Dictionary<QuestToken, bool> m_questCompleted;
-    public Dictionary<QuestToken, bool> QuestCompleted
+    [SerializeField] private List<QuestToken> m_questCompleted;
+    public List<QuestToken> QuestCompleted
     {
         get { return m_questCompleted; }
     }
-    [SerializeField] private Dictionary<EnemyToken, int> m_requiredKills;
+    [SerializeField] private List<DialogueToken> m_speakTo;
+    public List<DialogueToken> SpeakTo
+    {
+        get { return m_speakTo; }
+    }
+    [SerializeField] private List<SceneToken> m_areaVisited;
+    public List<SceneToken> AreaVisited
+    {
+        get { return m_areaVisited; }
+    }
+    [SerializeField] private EnemyDictionary m_requiredKills;
     public Dictionary<EnemyToken, int> RequiredKills
     {
         get { return m_requiredKills; }
     }
-    [SerializeField] private Dictionary<UsableItemToken, int> m_itemRequired;
+    [SerializeField] private UsableItemDictionary m_itemRequired;
     public Dictionary<UsableItemToken, int> ItemRequired
     {
         get { return m_itemRequired; }
     }
-    [SerializeField] private Dictionary<DialogueToken, bool> m_speakTo;
-    public Dictionary<DialogueToken, bool> SpeakTo
-    {
-        get { return m_speakTo; }
-    }
-    [SerializeField] private Dictionary<SceneToken, bool> m_areaVisited;
-    public Dictionary<SceneToken, bool> AreaVisited
-    {
-        get { return m_areaVisited; }
-    }
 }
+
+[Serializable] public class EnemyDictionary : UnitySerializedDictionary<EnemyToken, int> { }
+[Serializable] public class UsableItemDictionary : UnitySerializedDictionary<UsableItemToken, int> { }
+
