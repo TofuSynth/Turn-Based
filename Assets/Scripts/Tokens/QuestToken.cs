@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using Tofu.TurnBased.SceneManagement;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -13,11 +14,6 @@ public class QuestToken : ScriptableObject
     public string QuestName
     {
         get { return m_questName; }
-    }
-    [SerializeField, ReadOnly] private int m_questProgress;
-    public int QuestProgress
-    {
-        get { return m_questProgress; }
     }
     [SerializeField] private List<QuestStep> m_steps;
     public List<QuestStep> Steps
@@ -62,43 +58,28 @@ public class QuestStep : BoolStateObject
 [Serializable]
 public class QuestConditions
 {
-    [SerializeField, ReadOnly] private bool m_isConditionMet;
-    public bool IsConditionMet
-    {
-        get { return m_isConditionMet; }
-    }
-    [SerializeField] private QuestToken m_questCompleted;
-    public QuestToken QuestCompleted
+    [SerializeField] private Dictionary<QuestToken, bool> m_questCompleted;
+    public Dictionary<QuestToken, bool> QuestCompleted
     {
         get { return m_questCompleted; }
     }
-    [SerializeField] private int m_requiredKills;
-    public int RequiredKills
+    [SerializeField] private Dictionary<EnemyToken, int> m_requiredKills;
+    public Dictionary<EnemyToken, int> RequiredKills
     {
         get { return m_requiredKills; }
     }
-    [SerializeField] private string m_enemyRequired;
-    public string EnemyRequired
-    {
-        get { return m_enemyRequired;} 
-    }
-    [SerializeField] private string m_itemRequired;
-    public string ItemRequired
+    [SerializeField] private Dictionary<UsableItemToken, int> m_itemRequired;
+    public Dictionary<UsableItemToken, int> ItemRequired
     {
         get { return m_itemRequired; }
     }
-    [SerializeField] private int m_itemAmountRequired;
-    public int ItemAmountRequired
-    {
-        get { return m_itemAmountRequired; }
-    }
-    [SerializeField] private string m_speakTo;
-    public string SpeakTo
+    [SerializeField] private Dictionary<DialogueToken, bool> m_speakTo;
+    public Dictionary<DialogueToken, bool> SpeakTo
     {
         get { return m_speakTo; }
     }
-    [SerializeField] private string m_areaVisited;
-    public string AreaVisited
+    [SerializeField] private Dictionary<SceneToken, bool> m_areaVisited;
+    public Dictionary<SceneToken, bool> AreaVisited
     {
         get { return m_areaVisited; }
     }

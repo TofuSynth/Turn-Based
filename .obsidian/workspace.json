@@ -26,9 +26,11 @@
             "id": "5b8dbaa87d95f5c4",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.2.8"
+                "file": "Obsidian/Notes from Irshad/Working with Types/1. Generics and Type Variables.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -107,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Obsidian/Mind Map.canvas",
+                "file": "Obsidian/Notes from Irshad/Working with Types/1. Generics and Type Variables.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -124,7 +126,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Obsidian/Mind Map.canvas",
+                "file": "Obsidian/Notes from Irshad/Working with Types/1. Generics and Type Variables.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -147,7 +149,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Obsidian/Mind Map.canvas"
+                "file": "Obsidian/Notes from Irshad/Working with Types/1. Generics and Type Variables.md"
               }
             }
           }

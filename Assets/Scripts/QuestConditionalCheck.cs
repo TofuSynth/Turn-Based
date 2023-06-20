@@ -17,7 +17,7 @@ public class QuestConditionalCheck : MonoBehaviour
     
     public void CheckQuestProgress()
     {
-        if (Quest.QuestProgress == RequiredStep)
+        //if (Quest.QuestProgress == RequiredStep)
         {
             
         }
