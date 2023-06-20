@@ -47,8 +47,8 @@ public class QuestStep : BoolStateObject
     {
         get { return m_description; }
     }
-    [SerializeField] private List<QuestConditions> m_conditions = new List<QuestConditions>();
-    public List<QuestConditions> Steps
+    [SerializeField] private QuestConditions m_conditions = new QuestConditions();
+    public QuestConditions Conditions
     {
         get { return m_conditions; }
     }
