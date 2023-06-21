@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Tofu.TurnBased.Inventory;
 using Tofu.TurnBased.SceneManagement;
 using UnityEngine;
 using Tofu.TurnBased.Services;
@@ -10,6 +11,10 @@ namespace Tofu.TurnBased.Quests
     public class QuestManagementService : ServiceBase<QuestManagementService>
     {
         private Dictionary<QuestToken, QuestConditionals> m_activeQuests;
+        public Dictionary<QuestToken, QuestConditionals> activeQuests
+        {
+            get { return m_activeQuests; }
+        }
         private List<QuestToken> m_completedQuests;
 
         public void AcquireNewQuest(QuestToken newQuest)
@@ -58,8 +63,40 @@ namespace Tofu.TurnBased.Quests
                     newCondtionals.itemGathered.Add(item, currentQuestStep.Conditions.ItemRequired[item]);
                 }
             }
+            CheckIfRequiredQuestIsComplete(quest);
+            CheckIfRequiredItemIsObtained(quest);
         }
 
+        public void CheckIfRequiredQuestIsComplete(QuestToken quest)
+        {
+            foreach (QuestToken completedQuests in m_completedQuests)
+            {
+                foreach (KeyValuePair<QuestToken, int> questCompleted in m_activeQuests[quest].questCompleted)
+                {
+                    if (completedQuests == questCompleted.Key)
+                    {
+                       m_activeQuests[quest].questCompleted[questCompleted.Key] = 0;
+                    }
+                }
+            }
+        }
+
+        public void CheckIfRequiredItemIsObtained(QuestToken quest)
+        {
+            InventoryService inventory = ServiceLocator.GetService<InventoryService>();
+
+            foreach (KeyValuePair<UsableItemToken, int> item in inventory.ownedUsableItems )
+            {
+                foreach (KeyValuePair<UsableItemToken, int> itemGathered in m_activeQuests[quest].itemGathered)
+                {
+                    if (item.Key == itemGathered.Key && item.Value >= itemGathered.Value)
+                    {
+                        m_activeQuests[quest].itemGathered[itemGathered.Key] = 0;
+                    }
+                }
+            }
+        }
+        
         public void CheckIfQuestStepAdvances(QuestToken quest)
         {
             if (!CheckIfQuestConditionsMet(quest))
