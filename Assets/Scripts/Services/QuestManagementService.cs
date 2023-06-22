@@ -64,9 +64,16 @@ namespace Tofu.TurnBased.Quests
                 }
             }
             CheckIfRequiredQuestIsComplete(quest);
-            CheckIfRequiredItemIsObtained(quest);
+            CheckQuestsThatRequireItems();
         }
 
+        public void CheckQuestsThatRequireItems()
+        {
+            foreach (QuestToken quest in m_activeQuests.Keys)
+            { 
+                CheckIfRequiredItemIsObtained(quest);
+            }
+        }
         public void CheckIfRequiredQuestIsComplete(QuestToken quest)
         {
             foreach (QuestToken completedQuests in m_completedQuests)
@@ -81,19 +88,52 @@ namespace Tofu.TurnBased.Quests
             }
         }
 
+        public void CheckIfNPCHasBeenSpokenTo()
+        {
+            
+        }
+        
+        public void CheckIfAreaHasBeenVisited(SceneToken area)
+        {
+            foreach(QuestToken quest in m_activeQuests.Keys)
+            {
+                if (m_activeQuests[quest].areaVisited.ContainsKey(area))
+                {
+                    m_activeQuests[quest].areaVisited[area] = 0;
+                }
+            }
+        }
+
+        public void CheckIfRequiredEnemiesHaveBeenKilled(EnemyToken killedEnemy, int amountKilled)
+        {
+            foreach (QuestToken activeQuest in m_activeQuests.Keys)
+            {
+                if (m_activeQuests[activeQuest].enemyDefeated.ContainsKey(killedEnemy))
+                {
+                    m_activeQuests[activeQuest].enemyDefeated[killedEnemy] -= amountKilled;
+                    if (m_activeQuests[activeQuest].enemyDefeated[killedEnemy] < 0)
+                    {
+                        m_activeQuests[activeQuest].enemyDefeated[killedEnemy] = 0;
+                    }
+                }
+            }
+        }
+        
         public void CheckIfRequiredItemIsObtained(QuestToken quest)
         {
             InventoryService inventory = ServiceLocator.GetService<InventoryService>();
 
             foreach (KeyValuePair<UsableItemToken, int> item in inventory.ownedUsableItems )
             {
-                foreach (KeyValuePair<UsableItemToken, int> itemGathered in m_activeQuests[quest].itemGathered)
-                {
-                    if (item.Key == itemGathered.Key && item.Value >= itemGathered.Value)
-                    {
-                        m_activeQuests[quest].itemGathered[itemGathered.Key] = 0;
-                    }
-                }
+                 if (m_activeQuests[quest].itemGathered.ContainsKey(item.Key))
+                 {
+                     m_activeQuests[quest].itemGathered[item.Key] = 
+                         quest.Steps[m_activeQuests[quest].currentStep].Conditions.ItemRequired[item.Key] - item.Value;
+                     if (m_activeQuests[quest].itemGathered[item.Key] < 0)
+                     {
+                         m_activeQuests[quest].itemGathered[item.Key] = 0;
+                     }
+                 }
             }
         }
         
