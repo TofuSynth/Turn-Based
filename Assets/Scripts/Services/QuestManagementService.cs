@@ -34,7 +34,7 @@ namespace Tofu.TurnBased.Quests
             {
                 x = m_activeQuests[quest].currentStep;
             }
-            QuestConditionals newCondtionals = m_activeQuests[quest];
+            QuestConditionals newConditionals = m_activeQuests[quest] = new QuestConditionals();
             int currentStep = x;
             if (currentStep > quest.Steps.Count)
             {
@@ -46,30 +46,30 @@ namespace Tofu.TurnBased.Quests
 
                 foreach (QuestToken completedQuest in currentQuestStep.Conditions.QuestCompleted)
                 {
-                    newCondtionals.questCompleted.Add(quest, 1);
+                    newConditionals.questCompleted.Add(quest, 1);
                 }
 
                 foreach (DialogueToken NPC in currentQuestStep.Conditions.SpeakTo)
                 {
-                    newCondtionals.spokenTo.Add(NPC, 1);
+                    newConditionals.spokenTo.Add(NPC, 1);
                 }
 
                 foreach (SceneToken area in currentQuestStep.Conditions.AreaVisited)
                 {
-                    newCondtionals.areaVisited.Add(area, 1);
+                    newConditionals.areaVisited.Add(area, 1);
                 }
 
                 foreach (EnemyToken enemies in currentQuestStep.Conditions.RequiredKills.Keys)
                 {
-                    newCondtionals.enemyDefeated.Add(enemies, currentQuestStep.Conditions.RequiredKills[enemies]);
+                    newConditionals.enemyDefeated.Add(enemies, currentQuestStep.Conditions.RequiredKills[enemies]);
                 }
 
                 foreach (UsableItemToken item in currentQuestStep.Conditions.ItemRequired.Keys)
                 {
-                    newCondtionals.itemGathered.Add(item, currentQuestStep.Conditions.ItemRequired[item]);
+                    newConditionals.itemGathered.Add(item, currentQuestStep.Conditions.ItemRequired[item]);
                 }
 
-                newCondtionals.areConditionalsCompleted = false;
+                newConditionals.areConditionalsCompleted = false;
             }
             CheckIfRequiredQuestIsComplete(quest);
             CheckQuestsThatRequireItems();
