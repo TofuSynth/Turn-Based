@@ -15,9 +15,9 @@
               "state": {
                 "file": "Obsidian/Mind Map.canvas",
                 "viewState": {
-                  "x": 1712.0373948138172,
-                  "y": -1793.9149607808622,
-                  "zoom": -2.3242391675712746
+                  "x": 5742.7188312323,
+                  "y": -107.3644124151447,
+                  "zoom": -0.6575725009046076
                 }
               }
             }
@@ -34,8 +34,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -109,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Obsidian/Notes from Irshad/Working with Types/1. Generics and Type Variables.md",
+                "file": "Obsidian/Mind Map.canvas",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -126,7 +125,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Obsidian/Notes from Irshad/Working with Types/1. Generics and Type Variables.md",
+                "file": "Obsidian/Mind Map.canvas",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -149,7 +148,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Obsidian/Notes from Irshad/Working with Types/1. Generics and Type Variables.md"
+                "file": "Obsidian/Mind Map.canvas"
               }
             }
           }
@@ -170,8 +169,9 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "5b8dbaa87d95f5c4",
+  "active": "e0c52bfd0c9e7630",
   "lastOpenFiles": [
+    "Obsidian/Notes from Irshad/Working with Types/1. Generics and Type Variables.md",
     "Library/TempArtifacts/Extra/6f765d411615e0344bfa55a2c01efa26",
     "Library/ProtocolInstance.json",
     "Temp/UnityTempFile-706cbbced2dfa444e8be6a5827d8795e",
@@ -182,7 +182,6 @@
     "Temp/UnityTempFile-b63762a2ad39e1d47848eba8810e620a",
     "Temp/UnityTempFile-de6a6ba46ba80e34c8134dd18992b3e3",
     "Library/Artifacts/c4/c4391fb425238972618823198124e492",
-    "Library/Artifacts/5e/5ee80436945631ef278b69b2117a35cd",
     "Library/PackageCache/com.unity.ide.rider@3.0.21/Documentation~/images/preferences-settings-external-tools-window.png",
     "Library/PackageCache/com.unity.ide.rider@3.0.21/Documentation~/images/preferences-rider-tab.png",
     "Library/PackageCache/com.unity.ide.rider@3.0.21/Documentation~/using-the-jetbrains-rider-editor-package.md",
@@ -205,7 +204,6 @@
     "Obsidian/Notes from Irshad/Services/1. Service Locator.md",
     "Obsidian/Notes from Irshad/Services/2. Complex Services.md",
     "Obsidian/Notes from Irshad/Working with Types/3. Generic Constraints.md",
-    "Obsidian/Notes from Irshad/Working with Types/2. Variable Generics, or Templating.md",
-    "Obsidian/Notes from Irshad/Working with Types/1. Generics and Type Variables.md"
+    "Obsidian/Notes from Irshad/Working with Types/2. Variable Generics, or Templating.md"
   ]
 }

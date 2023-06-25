@@ -4,6 +4,7 @@ using Tofu.TurnBased.Inventory;
 using Tofu.TurnBased.SceneManagement;
 using UnityEngine;
 using Tofu.TurnBased.Services;
+using UnityEditor;
 using UnityEngine.SceneManagement;
 
 namespace Tofu.TurnBased.Quests
@@ -139,8 +140,19 @@ namespace Tofu.TurnBased.Quests
         
         public void CheckIfQuestStepAdvances(QuestToken quest)
         {
+            InventoryService inventoryService = ServiceLocator.GetService<InventoryService>();
             if (!CheckIfQuestConditionsMet(quest))
             {
+                foreach (KeyValuePair<UsableItemToken, int> item in 
+                         quest.Steps[m_activeQuests[quest].currentStep].ItemsRemovedUponCompletition.ItemsRemoved)
+                {
+                    inventoryService.RemoveItemFromInventory(item.Key, item.Value);
+                }
+                foreach (KeyValuePair<UsableItemToken, int> item in 
+                         quest.Steps[m_activeQuests[quest].currentStep].ItemsRewardedUponCompletition.ItemsRewarded)
+                {
+                    inventoryService.AddItemToInventory(item.Key, item.Value);
+                }
                 m_activeQuests[quest].currentStep++;
                 UpdateConditionals(quest);
             }

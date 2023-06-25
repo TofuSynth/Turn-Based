@@ -35,9 +35,9 @@ namespace Tofu.TurnBased.Inventory
             }  
         }
 
-        public void RemoveItemFromInventory(UsableItemToken removeItem)
+        public void RemoveItemFromInventory(UsableItemToken removeItem, int itemAmount)
         {
-            m_ownedUsableItems[removeItem] -= 1;
+            m_ownedUsableItems[removeItem] -= itemAmount;
             if (m_ownedUsableItems[removeItem] <= 0)
             {
                 m_ownedUsableItems.Remove(removeItem);
