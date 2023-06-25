@@ -29,8 +29,13 @@ namespace Tofu.TurnBased.Quests
 
         public void UpdateConditionals(QuestToken quest)
         {
+            int x = 0;
+            if (m_activeQuests[quest].currentStep != 0)
+            {
+                x = m_activeQuests[quest].currentStep;
+            }
             QuestConditionals newCondtionals = m_activeQuests[quest];
-            int currentStep = newCondtionals.currentStep;
+            int currentStep = x;
             if (currentStep > quest.Steps.Count)
             {
                 CompleteQuest(quest);
@@ -63,6 +68,8 @@ namespace Tofu.TurnBased.Quests
                 {
                     newCondtionals.itemGathered.Add(item, currentQuestStep.Conditions.ItemRequired[item]);
                 }
+
+                newCondtionals.areConditionalsCompleted = false;
             }
             CheckIfRequiredQuestIsComplete(quest);
             CheckQuestsThatRequireItems();
@@ -75,6 +82,7 @@ namespace Tofu.TurnBased.Quests
                 CheckIfRequiredItemIsObtained(quest);
             }
         }
+        
         public void CheckIfRequiredQuestIsComplete(QuestToken quest)
         {
             foreach (QuestToken completedQuests in m_completedQuests)
@@ -141,7 +149,7 @@ namespace Tofu.TurnBased.Quests
         public void CheckIfQuestStepAdvances(QuestToken quest)
         {
             InventoryService inventoryService = ServiceLocator.GetService<InventoryService>();
-            if (!CheckIfQuestConditionsMet(quest))
+            if (CheckIfQuestConditionsMet(quest))
             {
                 foreach (KeyValuePair<UsableItemToken, int> item in 
                          quest.Steps[m_activeQuests[quest].currentStep].ItemsRemovedUponCompletition.ItemsRemoved)
@@ -213,6 +221,8 @@ namespace Tofu.TurnBased.Quests
         public Dictionary<SceneToken, int> areaVisited;
         public Dictionary<EnemyToken, int> enemyDefeated;
         public Dictionary<UsableItemToken, int> itemGathered;
+        public bool areConditionalsCompleted = false;
         
+
     }
 }
