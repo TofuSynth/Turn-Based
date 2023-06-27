@@ -68,6 +68,28 @@ namespace Tofu.TurnBased.Quests
                 {
                     newConditionals.itemGathered.Add(item, currentQuestStep.Conditions.ItemRequired[item]);
                 }
+                
+                //Completiion Requirments.
+                newConditionals.areConditionalsCompleted = false;
+                foreach (DialogueToken NPC in currentQuestStep.CompleteConditions.SpeakTo)
+                {
+                    newConditionals.completeSpokenTo.Add(NPC, 1);
+                }
+
+                foreach (SceneToken area in currentQuestStep.CompleteConditions.AreaVisited)
+                {
+                    newConditionals.completeAreaVisited.Add(area, 1);
+                }
+
+                foreach (EnemyToken enemies in currentQuestStep.CompleteConditions.RequiredKills.Keys)
+                {
+                    newConditionals.completeEnemyDefeated.Add(enemies, currentQuestStep.CompleteConditions.RequiredKills[enemies]);
+                }
+
+                foreach (UsableItemToken item in currentQuestStep.CompleteConditions.ItemRequired.Keys)
+                {
+                    newConditionals.completeItemGathered.Add(item, currentQuestStep.CompleteConditions.ItemRequired[item]);
+                }
 
                 newConditionals.areConditionalsCompleted = false;
             }
@@ -91,7 +113,8 @@ namespace Tofu.TurnBased.Quests
                 {
                     if (completedQuests == questCompleted.Key)
                     {
-                       m_activeQuests[quest].questCompleted[questCompleted.Key] = 0;
+                        m_activeQuests[quest].questCompleted[questCompleted.Key] = 0;
+                        CheckIfBaseQuestRequirementsMet(quest);
                     }
                 }
             }
@@ -106,9 +129,17 @@ namespace Tofu.TurnBased.Quests
         {
             foreach(QuestToken quest in m_activeQuests.Keys)
             {
-                if (m_activeQuests[quest].areaVisited.ContainsKey(area))
+                if (m_activeQuests[quest].areaVisited.ContainsKey(area) &&
+                    !m_activeQuests[quest].areConditionalsCompleted)
                 {
                     m_activeQuests[quest].areaVisited[area] = 0;
+                    CheckIfBaseQuestRequirementsMet(quest);
+                }
+                else if (m_activeQuests[quest].completeAreaVisited.ContainsKey(area) &&
+                         m_activeQuests[quest].areConditionalsCompleted)
+                {
+                    m_activeQuests[quest].completeAreaVisited[area] = 0;
+                    QuestStepAdvances(quest);
                 }
             }
         }
@@ -117,12 +148,24 @@ namespace Tofu.TurnBased.Quests
         {
             foreach (QuestToken activeQuest in m_activeQuests.Keys)
             {
-                if (m_activeQuests[activeQuest].enemyDefeated.ContainsKey(killedEnemy))
+                if (m_activeQuests[activeQuest].enemyDefeated.ContainsKey(killedEnemy) &&
+                    !m_activeQuests[activeQuest].areConditionalsCompleted)
                 {
                     m_activeQuests[activeQuest].enemyDefeated[killedEnemy] -= amountKilled;
                     if (m_activeQuests[activeQuest].enemyDefeated[killedEnemy] < 0)
                     {
                         m_activeQuests[activeQuest].enemyDefeated[killedEnemy] = 0;
+                        CheckIfBaseQuestRequirementsMet(activeQuest);
+                    }
+                }
+                else if (m_activeQuests[activeQuest].completeEnemyDefeated.ContainsKey(killedEnemy) &&
+                         m_activeQuests[activeQuest].areConditionalsCompleted)
+                {
+                    m_activeQuests[activeQuest].completeEnemyDefeated[killedEnemy] -= amountKilled;
+                    if (m_activeQuests[activeQuest].completeEnemyDefeated[killedEnemy] < 0)
+                    {
+                        m_activeQuests[activeQuest].completeEnemyDefeated[killedEnemy] = 0;
+                        QuestStepAdvances(activeQuest);
                     }
                 }
             }
@@ -134,38 +177,57 @@ namespace Tofu.TurnBased.Quests
 
             foreach (KeyValuePair<UsableItemToken, int> item in inventory.ownedUsableItems )
             {
-                 if (m_activeQuests[quest].itemGathered.ContainsKey(item.Key))
+                 if (m_activeQuests[quest].itemGathered.ContainsKey(item.Key) && !m_activeQuests[quest].areConditionalsCompleted)
                  {
                      m_activeQuests[quest].itemGathered[item.Key] = 
                          quest.Steps[m_activeQuests[quest].currentStep].Conditions.ItemRequired[item.Key] - item.Value;
                      if (m_activeQuests[quest].itemGathered[item.Key] < 0)
                      {
                          m_activeQuests[quest].itemGathered[item.Key] = 0;
+                         CheckIfBaseQuestRequirementsMet(quest);
+                     }
+                 }
+                 else if (m_activeQuests[quest].completeItemGathered.ContainsKey(item.Key) &&
+                          m_activeQuests[quest].areConditionalsCompleted)
+                 {
+                     m_activeQuests[quest].completeItemGathered[item.Key] = 
+                         quest.Steps[m_activeQuests[quest].currentStep].CompleteConditions.ItemRequired[item.Key] - item.Value;
+                     if (m_activeQuests[quest].completeItemGathered[item.Key] < 0)
+                     {
+                         m_activeQuests[quest].completeItemGathered[item.Key] = 0;
+                         QuestStepAdvances(quest);
                      }
                  }
             }
         }
-        
-        public void CheckIfQuestStepAdvances(QuestToken quest)
+
+        public void QuestStepAdvances(QuestToken quest)
         {
             InventoryService inventoryService = ServiceLocator.GetService<InventoryService>();
-            if (CheckIfQuestConditionsMet(quest))
+            foreach (KeyValuePair<UsableItemToken, int> item in 
+                     quest.Steps[m_activeQuests[quest].currentStep].ItemsRemovedUponCompletition.ItemsRemoved)
             {
-                foreach (KeyValuePair<UsableItemToken, int> item in 
-                         quest.Steps[m_activeQuests[quest].currentStep].ItemsRemovedUponCompletition.ItemsRemoved)
-                {
-                    inventoryService.RemoveItemFromInventory(item.Key, item.Value);
-                }
-                foreach (KeyValuePair<UsableItemToken, int> item in 
-                         quest.Steps[m_activeQuests[quest].currentStep].ItemsRewardedUponCompletition.ItemsRewarded)
-                {
-                    inventoryService.AddItemToInventory(item.Key, item.Value);
-                }
-                m_activeQuests[quest].currentStep++;
-                UpdateConditionals(quest);
+                inventoryService.RemoveItemFromInventory(item.Key, item.Value);
             }
+
+            foreach (KeyValuePair<UsableItemToken, int> item in
+                     quest.Steps[m_activeQuests[quest].currentStep].ItemsRewardedUponCompletition.ItemsRewarded)
+            {
+                inventoryService.AddItemToInventory(item.Key, item.Value);
+            }
+
+            m_activeQuests[quest].currentStep++;
+            UpdateConditionals(quest);
         }
 
+        public void CheckIfBaseQuestRequirementsMet(QuestToken quest)
+        {
+            if (CheckIfQuestConditionsMet(quest))
+            {
+                m_activeQuests[quest].areConditionalsCompleted = true;
+            }
+        }
+        
         public bool CheckIfQuestConditionsMet(QuestToken quest)
         {
             foreach (KeyValuePair<QuestToken, int> questCompleted in m_activeQuests[quest].questCompleted)
@@ -222,7 +284,9 @@ namespace Tofu.TurnBased.Quests
         public Dictionary<EnemyToken, int> enemyDefeated;
         public Dictionary<UsableItemToken, int> itemGathered;
         public bool areConditionalsCompleted = false;
-        
-
+        public Dictionary<DialogueToken, int> completeSpokenTo;
+        public Dictionary<SceneToken, int> completeAreaVisited;
+        public Dictionary<EnemyToken, int> completeEnemyDefeated;
+        public Dictionary<UsableItemToken, int> completeItemGathered;
     }
 }
