@@ -69,7 +69,7 @@ namespace Tofu.TurnBased.Quests
                     newConditionals.itemGathered.Add(item, currentQuestStep.Conditions.ItemRequired[item]);
                 }
                 
-                //Completiion Requirments.
+                //Completion Requirments.
                 newConditionals.areConditionalsCompleted = false;
                 foreach (DialogueToken NPC in currentQuestStep.CompleteConditions.SpeakTo)
                 {
@@ -129,14 +129,14 @@ namespace Tofu.TurnBased.Quests
         {
             foreach(QuestToken quest in m_activeQuests.Keys)
             {
-                if (m_activeQuests[quest].areaVisited.ContainsKey(area) &&
-                    !m_activeQuests[quest].areConditionalsCompleted)
+                if (!m_activeQuests[quest].areConditionalsCompleted &&
+                    m_activeQuests[quest].areaVisited.ContainsKey(area))
                 {
                     m_activeQuests[quest].areaVisited[area] = 0;
                     CheckIfBaseQuestRequirementsMet(quest);
                 }
-                else if (m_activeQuests[quest].completeAreaVisited.ContainsKey(area) &&
-                         m_activeQuests[quest].areConditionalsCompleted)
+                else if (m_activeQuests[quest].areConditionalsCompleted &&
+                          m_activeQuests[quest].completeAreaVisited.ContainsKey(area))
                 {
                     m_activeQuests[quest].completeAreaVisited[area] = 0;
                     QuestStepAdvances(quest);
@@ -148,8 +148,8 @@ namespace Tofu.TurnBased.Quests
         {
             foreach (QuestToken activeQuest in m_activeQuests.Keys)
             {
-                if (m_activeQuests[activeQuest].enemyDefeated.ContainsKey(killedEnemy) &&
-                    !m_activeQuests[activeQuest].areConditionalsCompleted)
+                if (!m_activeQuests[activeQuest].areConditionalsCompleted && 
+                    m_activeQuests[activeQuest].enemyDefeated.ContainsKey(killedEnemy))
                 {
                     m_activeQuests[activeQuest].enemyDefeated[killedEnemy] -= amountKilled;
                     if (m_activeQuests[activeQuest].enemyDefeated[killedEnemy] < 0)
@@ -158,8 +158,8 @@ namespace Tofu.TurnBased.Quests
                         CheckIfBaseQuestRequirementsMet(activeQuest);
                     }
                 }
-                else if (m_activeQuests[activeQuest].completeEnemyDefeated.ContainsKey(killedEnemy) &&
-                         m_activeQuests[activeQuest].areConditionalsCompleted)
+                else if (m_activeQuests[activeQuest].areConditionalsCompleted &&
+                         m_activeQuests[activeQuest].completeEnemyDefeated.ContainsKey(killedEnemy))
                 {
                     m_activeQuests[activeQuest].completeEnemyDefeated[killedEnemy] -= amountKilled;
                     if (m_activeQuests[activeQuest].completeEnemyDefeated[killedEnemy] < 0)
@@ -177,7 +177,8 @@ namespace Tofu.TurnBased.Quests
 
             foreach (KeyValuePair<UsableItemToken, int> item in inventory.ownedUsableItems )
             {
-                 if (m_activeQuests[quest].itemGathered.ContainsKey(item.Key) && !m_activeQuests[quest].areConditionalsCompleted)
+                 if (!m_activeQuests[quest].areConditionalsCompleted &&
+                     m_activeQuests[quest].itemGathered.ContainsKey(item.Key))
                  {
                      m_activeQuests[quest].itemGathered[item.Key] = 
                          quest.Steps[m_activeQuests[quest].currentStep].Conditions.ItemRequired[item.Key] - item.Value;
@@ -187,8 +188,8 @@ namespace Tofu.TurnBased.Quests
                          CheckIfBaseQuestRequirementsMet(quest);
                      }
                  }
-                 else if (m_activeQuests[quest].completeItemGathered.ContainsKey(item.Key) &&
-                          m_activeQuests[quest].areConditionalsCompleted)
+                 else if (m_activeQuests[quest].areConditionalsCompleted && 
+                          m_activeQuests[quest].completeItemGathered.ContainsKey(item.Key))
                  {
                      m_activeQuests[quest].completeItemGathered[item.Key] = 
                          quest.Steps[m_activeQuests[quest].currentStep].CompleteConditions.ItemRequired[item.Key] - item.Value;
