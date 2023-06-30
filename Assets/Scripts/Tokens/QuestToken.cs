@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using Tofu.TurnBased.Dialogue;
 using Tofu.TurnBased.SceneManagement;
 using UnityEditor;
 using UnityEngine;

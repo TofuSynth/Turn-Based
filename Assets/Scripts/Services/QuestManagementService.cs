@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Tofu.TurnBased.Dialogue;
 using Tofu.TurnBased.Inventory;
 using Tofu.TurnBased.SceneManagement;
 using UnityEngine;

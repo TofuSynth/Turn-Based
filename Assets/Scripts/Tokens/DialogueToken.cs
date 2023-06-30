@@ -4,89 +4,76 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Tokens/Dialogue Token")]
-public class DialogueToken : ScriptableObject
+namespace Tofu.TurnBased.Dialogue
 {
-    [SerializeField, ReadOnly] private int m_dialogueProgress;
-    public int DialogueProgress
+    [CreateAssetMenu(menuName = "Tokens/Dialogue Token")]
+    public class DialogueToken : ScriptableObject
     {
-        get { return m_dialogueProgress; }
-    }
-    [SerializeField] private List<Dialogue> m_dialogue = new List<Dialogue>();
-    public List<Dialogue> Dialogue
-    {
-        get { return m_dialogue; }
-    }
-    private void OnValidate()
-    {
-        //Loop through all Dialogue entries and assign their keys
-        for (int i = 0;i < Dialogue.Count;i++)
+        [SerializeField] private List<Dialogue> m_dialogue = new List<Dialogue>();
+
+        public List<Dialogue> Dialogue
         {
-            Dialogue[i].SetSaveKey("state",this.GetInstanceID(),"dialogue" + i);
-            
-            //Loop over each Dialogue's child Conversations and assign their keys
-            for (int j = 0; j < Dialogue[i].Conversations.Count; j++)
-            {
-                Dialogue[i].Conversations[j].SetSaveKey("state",this.GetInstanceID(),"dialogue" + i + ".conversation" + j);
-            }
+            get { return m_dialogue; }
         }
     }
-}
-[Serializable]
-public class Dialogue : BoolStateObject
-{
-    [SerializeField] private List<DialogueConversations> m_conversations = new List<DialogueConversations>();
-    public List<DialogueConversations> Conversations
-    {
-        get { return m_conversations; }
-    }
-    public int DialogueTotalStages
-    {
-        get { return Conversations.Count; }
-    }
-}
 
-[Serializable]
-public class DialogueConversations : BoolStateObject
-{
-    [SerializeField, Multiline(5)] private string m_dialogue;
-    public string Description
+    [Serializable]
+    public class Dialogue
     {
-        get { return m_dialogue; }
+        [SerializeField] DialogueConditions m_conditions;
+        public DialogueConditions Conditions
+        {
+            get {
+                return m_conditions;
+            }
+        }
+        
+        [SerializeField] List<Conversation> m_conversation;
+        public List<Conversation> Conversation
+        {
+            get { return m_conversation; }
+        }
     }
-    [SerializeField] private List<DialogueConditions> m_conditions;
-    public List<DialogueConditions> Steps
+
+    [Serializable]
+    public class Conversation
     {
-        get { return m_conditions; }
+        [SerializeField] string m_name;
+        [SerializeField, Multiline(5)] private string m_script;
     }
-    
-}
-[Serializable]
-public class DialogueConditions
-{
-    [SerializeField, ReadOnly] private bool m_isConditionMet;
-    public bool IsConditionMet
+
+    [Serializable]
+    public class DialogueConditions
     {
-        get { return m_isConditionMet; }
-    }
-    [SerializeField] private QuestToken m_questCompleted;
-    public QuestToken QuestCompleted
-    {
-        get { return m_questCompleted; }
-    }
-    [SerializeField] private string m_itemRequired;
-    public string ItemRequired
-    {
-        get { return m_itemRequired; }
-    }
-    [SerializeField] private string m_speakTo;
-    public string SpeakTo
-    {
-        get { return m_speakTo; }
-    }
-    [SerializeField] private string m_areaVisited;
-    public string AreaVisited
-    {
-        get { return m_areaVisited; }
+        [SerializeField] private QuestToken m_questCompleted;
+        public QuestToken QuestCompleted
+        {
+            get { return m_questCompleted; }
+        }
+
+        [SerializeField] private QuestToken m_activeQuest;
+        public QuestToken activeQuestToken
+        {
+            get { return m_activeQuest; }
+        }
+
+        [SerializeField] private int m_requiredStepOfActiveQuest;
+        public int requireStepOfActiveQuest
+        {
+            get { return m_requiredStepOfActiveQuest; }
+        }
+
+        [SerializeField] private bool m_isThisConversationAConditional;
+        public bool isThisConversationAConditional
+        {
+            get { return m_isThisConversationAConditional; }
+        }
+        
+        [SerializeField] private bool m_doesThisConversationCompleteTheQuest;
+        public bool doesThisConversationCompleteTheQuest
+        {
+            get { return m_doesThisConversationCompleteTheQuest; }
+        }
+
     }
 }
