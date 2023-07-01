@@ -126,9 +126,22 @@ namespace Tofu.TurnBased.Quests
             }
         }
 
-        public void CheckIfNPCHasBeenSpokenTo()
+        public void CheckIfNPCHasBeenSpokenTo(DialogueToken NPCSpokenTo)
         {
-            
+            foreach (QuestToken quest in m_activeQuests.Keys)
+            {
+                if (m_activeQuests[quest].spokenTo.ContainsKey(NPCSpokenTo))
+                {
+                    m_activeQuests[quest].spokenTo[NPCSpokenTo] = 0;
+                    CheckIfBaseQuestRequirementsMet(quest);
+                }
+                else if (m_activeQuests[quest].areConditionalsCompleted &&
+                         m_activeQuests[quest].completeSpokenTo.ContainsKey(NPCSpokenTo))
+                {
+                    m_activeQuests[quest].completeSpokenTo[NPCSpokenTo] = 0;
+                    QuestStepAdvances(quest);
+                }
+            }
         }
         
         public void CheckIfAreaHasBeenVisited(SceneToken area)
