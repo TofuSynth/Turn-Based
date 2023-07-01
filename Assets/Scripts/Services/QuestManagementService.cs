@@ -17,8 +17,13 @@ namespace Tofu.TurnBased.Quests
         {
             get { return m_activeQuests; }
         }
+        
         private List<QuestToken> m_completedQuests;
-
+        public List<QuestToken> completedQuests
+        {
+            get { return m_completedQuests; }
+        }
+        
         public void AcquireNewQuest(QuestToken newQuest)
         {
             if (!m_activeQuests.ContainsKey(newQuest))
