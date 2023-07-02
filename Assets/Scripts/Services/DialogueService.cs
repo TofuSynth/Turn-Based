@@ -72,7 +72,8 @@ private QuestDialogue CheckForValidQuestDialogue(DialogueToken dialogueTree)
             print(conversation.name);
             print(conversation.script);
         }
-        if (!dialogueTree.Dialogue[DialogueProgress[dialogueTree]].questRequiredAfterToAdvance)
+        if (!dialogueTree.Dialogue[DialogueProgress[dialogueTree]].questRequiredAfterToAdvance &&
+            DialogueProgress[dialogueTree] < dialogueTree.Dialogue.Count - 1)
         {
             DialogueProgress[dialogueTree]++;
         }

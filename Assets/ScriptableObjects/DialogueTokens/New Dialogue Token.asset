@@ -13,25 +13,15 @@ MonoBehaviour:
   m_Name: New Dialogue Token
   m_EditorClassIdentifier: 
   m_dialogue:
-  - m_conditions:
+  - m_dialogueStep: 0
+    m_questRequiredAfterToAdvance: 0
+    m_conversation: []
+  m_questDialogue:
+  - m_goToDialogueStepUponCompletion: 0
+    m_conditions:
       m_questCompleted: {fileID: 0}
       m_activeQuest: {fileID: 0}
       m_requiredStepOfActiveQuest: 0
       m_isThisConversationAConditional: 0
       m_doesThisConversationCompleteTheQuest: 0
-    m_conversation:
-    - m_name: TIm
-      m_script: 'Hi my name''s Tim!
-
-'
-    - m_name: Bob
-      m_script: Hi Tim, I'm Bob.
-  - m_conditions:
-      m_questCompleted: {fileID: 0}
-      m_activeQuest: {fileID: 0}
-      m_requiredStepOfActiveQuest: 0
-      m_isThisConversationAConditional: 0
-      m_doesThisConversationCompleteTheQuest: 0
-    m_conversation:
-    - m_name: 
-      m_script: 
+    m_conversation: []
