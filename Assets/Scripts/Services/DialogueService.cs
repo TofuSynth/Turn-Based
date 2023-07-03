@@ -5,12 +5,29 @@ using Tofu.TurnBased.Dialogue;
 using Tofu.TurnBased.Quests;
 using UnityEngine;
 using Tofu.TurnBased.Services;
+using Unity.VisualScripting;
+using UnityEngine.UIElements;
 
 
 public class DialogueService : ServiceBase<DialogueService>
 {
-    QuestManagementService quest = ServiceLocator.GetService<QuestManagementService>();
+    private GameObject DialogueUi;
     
+    private QuestManagementService quest;
+    void Start() {
+        quest = ServiceLocator.GetService<QuestManagementService>();
+        HideUI();
+    }
+
+    public void VisibleUI()
+    {
+        this.gameObject.SetActive(true);
+    }
+
+    void HideUI()
+    {
+        this.gameObject.SetActive(false);
+    }
     private Dictionary<DialogueToken, int> DialogueProgress = new Dictionary<DialogueToken, int>();
 
     private Dictionary<DialogueToken, Dictionary<QuestDialogue, bool>> QuestDialogueProgress =
