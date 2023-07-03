@@ -20,4 +20,11 @@ MonoBehaviour:
       m_script: My Name Tim
     - m_name: Bob
       m_script: Hi Tim, my name Bob
+  - m_dialogueStep: 1
+    m_questRequiredAfterToAdvance: 0
+    m_conversation:
+    - m_name: Bob
+      m_script: Hey TIm. How's it going?
+    - m_name: Tim
+      m_script: I'm doing ok. Thanks for asking.
   m_questDialogue: []

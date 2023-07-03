@@ -18,8 +18,7 @@ public class DialogueService : ServiceBase<DialogueService>
     private QuestManagementService m_quest;
     private GameStateService m_gameState;
     private ControlsService m_controlsService;
-    private bool m_continueConversation = false;
-    
+
     void Start() {
         m_quest = ServiceLocator.GetService<QuestManagementService>();
         m_gameState = ServiceLocator.GetService<GameStateService>();
@@ -50,7 +49,7 @@ public class DialogueService : ServiceBase<DialogueService>
         QuestDialogue questDialogue = CheckForValidQuestDialogue(dialogueTree);
         if (questDialogue != null)
         {
-            PrintQuestDialogue(dialogueTree, questDialogue);
+            StartCoroutine(PrintQuestDialogue(dialogueTree, questDialogue));
         }
         else
         {
@@ -95,7 +94,6 @@ public class DialogueService : ServiceBase<DialogueService>
         
     private IEnumerator PrintDialogue(DialogueToken dialogueTree)
     {
-        yield return null;
         foreach (Conversation conversation in dialogueTree.Dialogue[DialogueProgress[dialogueTree]].Conversation)
         {
             FillTextUI(conversation);
@@ -104,26 +102,32 @@ public class DialogueService : ServiceBase<DialogueService>
                 yield return null;
             } while (!m_controlsService.isInteractDown);
             
-            m_continueConversation = false;
+
         }
         if (!dialogueTree.Dialogue[DialogueProgress[dialogueTree]].questRequiredAfterToAdvance &&
             DialogueProgress[dialogueTree] < dialogueTree.Dialogue.Count - 1)
         {
             DialogueProgress[dialogueTree]++;
         }
+        ExitDialogue();
     }
 
-    private void PrintQuestDialogue(DialogueToken dialogueTree,QuestDialogue questDialogue)
+    private IEnumerator PrintQuestDialogue(DialogueToken dialogueTree,QuestDialogue questDialogue)
     {
         foreach (Conversation conversation in questDialogue.Conversation)
         {
             FillTextUI(conversation);
+            do
+            {
+                yield return null;
+            } while (!m_controlsService.isInteractDown);
         }
 
         QuestDialogueProgress.TryAdd(dialogueTree,new Dictionary<QuestDialogue,bool>());
         QuestDialogueProgress[dialogueTree].TryAdd(questDialogue,true);
         DialogueProgress[dialogueTree] = dialogueTree.QuestDialogue[DialogueProgress[dialogueTree]].goToDialogueStepUponCompletion;
         m_quest.CheckIfNPCHasBeenSpokenTo(dialogueTree);
+        ExitDialogue();
     }
 
     private void FillTextUI(Conversation conversation)
@@ -131,22 +135,10 @@ public class DialogueService : ServiceBase<DialogueService>
         nameText.text = conversation.name;
         dialogueText.text = conversation.script;
     }
-    
-    private void ProgressDialogue() {
-        m_continueConversation = true;
-    }
 
-   /* private IEnumerator PrintDialogueCoroutine() {
-        foreach (Conversation conversation in dialogueTree.Dialogue[DialogueProgress[dialogueTree]].Conversation) {
-            print(conversation.name);
-            print(conversation.script);
-  
-            //Every frame, we check if this boolean is false. If it is, we wait.
-            while (!continueConversation) {
-                yield return null; //This means "Wait for a frame"
-            }
-            //Reset the flag before going to the next iteration of the loop
-            continueConversation = false;
-        }
+    private void ExitDialogue()
+    {
+        HideUI();
+        m_gameState.NormalState();
     }
-*/}
+}
