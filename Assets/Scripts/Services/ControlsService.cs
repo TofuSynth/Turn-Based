@@ -61,6 +61,7 @@ public class ControlsService : ServiceBase<ControlsService>
     }
     private void InteractInput()
     {
+        
         isInteractDown = Input.GetKeyDown("e");
     }
 

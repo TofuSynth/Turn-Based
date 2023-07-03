@@ -12,18 +12,18 @@ using UnityEngine.UIElements;
 
 public class DialogueService : ServiceBase<DialogueService>
 {
-    private GameObject DialogueUi;
+    private GameObject m_dialogueUi;
     [SerializeField] TMP_Text nameText;
     [SerializeField] TMP_Text dialogueText;
-    private QuestManagementService quest;
-    private GameStateService gameState;
-    private ControlsService controlsService;
-    private bool continueConversation = false;
+    private QuestManagementService m_quest;
+    private GameStateService m_gameState;
+    private ControlsService m_controlsService;
+    private bool m_continueConversation = false;
     
     void Start() {
-        quest = ServiceLocator.GetService<QuestManagementService>();
-        gameState = ServiceLocator.GetService<GameStateService>();
-        controlsService = ServiceLocator.GetService<ControlsService>();
+        m_quest = ServiceLocator.GetService<QuestManagementService>();
+        m_gameState = ServiceLocator.GetService<GameStateService>();
+        m_controlsService = ServiceLocator.GetService<ControlsService>();
         HideUI();
     }
 
@@ -43,7 +43,7 @@ public class DialogueService : ServiceBase<DialogueService>
 
    public void StartConversation(DialogueToken dialogueTree)
     {
-        gameState.DialogueState();
+        m_gameState.DialogueState();
         DialogueProgress.TryAdd(dialogueTree, 0);
         QuestDialogueProgress.TryAdd(dialogueTree, new Dictionary<QuestDialogue, bool>());
 
@@ -69,10 +69,10 @@ public class DialogueService : ServiceBase<DialogueService>
                 if (dialogue.Conditions.activeQuest)
                 {
                     //Is the required quest in our activeQuest list? If not, move onto the next QuestDialogue in the list
-                    if (!quest.activeQuests.ContainsKey(dialogue.Conditions.activeQuest)) continue;
+                    if (!m_quest.activeQuests.ContainsKey(dialogue.Conditions.activeQuest)) continue;
 
                     //It is in the list. Check if it's at the required step. If not, move onto the next QuestDialogue
-                    if (quest.activeQuests[dialogue.Conditions.activeQuest].currentStep ==
+                    if (m_quest.activeQuests[dialogue.Conditions.activeQuest].currentStep ==
                         dialogue.Conditions.requireStepOfActiveQuest) return dialogue;
                     else continue;
                 }
@@ -80,7 +80,7 @@ public class DialogueService : ServiceBase<DialogueService>
                 if (dialogue.Conditions.QuestCompleted)
                 {
                     //Is the required quest in our completed quest list? If not, move onto the next QuestDialogue in the list
-                    if (quest.completedQuests.Contains(dialogue.Conditions.QuestCompleted)) return dialogue;
+                    if (m_quest.completedQuests.Contains(dialogue.Conditions.QuestCompleted)) return dialogue;
                     else continue;
                 }
 
@@ -95,18 +95,16 @@ public class DialogueService : ServiceBase<DialogueService>
         
     private IEnumerator PrintDialogue(DialogueToken dialogueTree)
     {
+        yield return null;
         foreach (Conversation conversation in dialogueTree.Dialogue[DialogueProgress[dialogueTree]].Conversation)
         {
             FillTextUI(conversation);
-            if (controlsService.isInteractDown)
+            do
             {
-                ProgressDialogue();
-            }
-            while (!continueConversation) {
                 yield return null;
-            }
-
-            continueConversation = false;
+            } while (!m_controlsService.isInteractDown);
+            
+            m_continueConversation = false;
         }
         if (!dialogueTree.Dialogue[DialogueProgress[dialogueTree]].questRequiredAfterToAdvance &&
             DialogueProgress[dialogueTree] < dialogueTree.Dialogue.Count - 1)
@@ -125,7 +123,7 @@ public class DialogueService : ServiceBase<DialogueService>
         QuestDialogueProgress.TryAdd(dialogueTree,new Dictionary<QuestDialogue,bool>());
         QuestDialogueProgress[dialogueTree].TryAdd(questDialogue,true);
         DialogueProgress[dialogueTree] = dialogueTree.QuestDialogue[DialogueProgress[dialogueTree]].goToDialogueStepUponCompletion;
-        quest.CheckIfNPCHasBeenSpokenTo(dialogueTree);
+        m_quest.CheckIfNPCHasBeenSpokenTo(dialogueTree);
     }
 
     private void FillTextUI(Conversation conversation)
@@ -135,7 +133,7 @@ public class DialogueService : ServiceBase<DialogueService>
     }
     
     private void ProgressDialogue() {
-        continueConversation = true;
+        m_continueConversation = true;
     }
 
    /* private IEnumerator PrintDialogueCoroutine() {
