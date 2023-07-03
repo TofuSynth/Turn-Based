@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private Animator m_animations;
     void Start()
     {
-        m_controlsService = ServiceLocator.GetService<ControlsService>();
+        m_controlsService = ServiceLocator.GetService<ControlsService>(); ;
         m_playerRigidBody = this.GetComponent<Rigidbody>();
         m_animations = this.GetComponentInChildren<Animator>();
     }
@@ -26,8 +26,8 @@ public class PlayerController : MonoBehaviour
     void Movement()
     {
         Vector3 inputVector = Vector3.zero;
-        float forwardMovement = Convert.ToInt32(m_controlsService.isForwardDown) - 
-                                Convert.ToInt32(m_controlsService.isBackDown);
+        float forwardMovement = Convert.ToInt32(m_controlsService.isUpDown) - 
+                                Convert.ToInt32(m_controlsService.isDownDown);
         float sideMovement = Convert.ToInt32(m_controlsService.isRightDown) -
                              Convert.ToInt32(m_controlsService.isLeftDown);
         

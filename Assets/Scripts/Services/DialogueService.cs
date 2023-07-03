@@ -15,10 +15,11 @@ public class DialogueService : ServiceBase<DialogueService>
     private GameObject DialogueUi;
     [SerializeField] TMP_Text nameText;
     [SerializeField] TMP_Text dialogueText;
-    
     private QuestManagementService quest;
+    private GameStateService gameState;
     void Start() {
         quest = ServiceLocator.GetService<QuestManagementService>();
+        gameState = ServiceLocator.GetService<GameStateService>();
         HideUI();
     }
 
@@ -38,6 +39,7 @@ public class DialogueService : ServiceBase<DialogueService>
 
    public void StartConversation(DialogueToken dialogueTree)
     {
+        gameState.DialogueState();
         DialogueProgress.TryAdd(dialogueTree, 0);
         QuestDialogueProgress.TryAdd(dialogueTree, new Dictionary<QuestDialogue, bool>());
 
@@ -91,8 +93,8 @@ private QuestDialogue CheckForValidQuestDialogue(DialogueToken dialogueTree)
     {
         foreach (Conversation conversation in dialogueTree.Dialogue[DialogueProgress[dialogueTree]].Conversation)
         {
-            nameText.text = conversation.name;
-            dialogueText.text = conversation.script;
+            FillTextUI(conversation);
+
         }
         if (!dialogueTree.Dialogue[DialogueProgress[dialogueTree]].questRequiredAfterToAdvance &&
             DialogueProgress[dialogueTree] < dialogueTree.Dialogue.Count - 1)
@@ -105,13 +107,18 @@ private QuestDialogue CheckForValidQuestDialogue(DialogueToken dialogueTree)
     {
         foreach (Conversation conversation in questDialogue.Conversation)
         {
-            nameText.text = conversation.name;
-            dialogueText.text = conversation.script;
+            FillTextUI(conversation);
         }
 
         QuestDialogueProgress.TryAdd(dialogueTree,new Dictionary<QuestDialogue,bool>());
         QuestDialogueProgress[dialogueTree].TryAdd(questDialogue,true);
         DialogueProgress[dialogueTree] = dialogueTree.QuestDialogue[DialogueProgress[dialogueTree]].goToDialogueStepUponCompletion;
         quest.CheckIfNPCHasBeenSpokenTo(dialogueTree);
+    }
+
+    private void FillTextUI(Conversation conversation)
+    {
+        nameText.text = conversation.name;
+        dialogueText.text = conversation.script;
     }
 }
