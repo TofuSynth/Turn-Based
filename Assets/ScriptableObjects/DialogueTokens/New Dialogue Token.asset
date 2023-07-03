@@ -15,13 +15,7 @@ MonoBehaviour:
   m_dialogue:
   - m_dialogueStep: 0
     m_questRequiredAfterToAdvance: 0
-    m_conversation: []
-  m_questDialogue:
-  - m_goToDialogueStepUponCompletion: 0
-    m_conditions:
-      m_questCompleted: {fileID: 0}
-      m_activeQuest: {fileID: 0}
-      m_requiredStepOfActiveQuest: 0
-      m_isThisConversationAConditional: 0
-      m_doesThisConversationCompleteTheQuest: 0
-    m_conversation: []
+    m_conversation:
+    - m_name: Tim
+      m_script: My Name Tim
+  m_questDialogue: []

@@ -14,7 +14,6 @@ namespace Tofu.TurnBased.NPC
         private DialogueService dialogueService;
         [SerializeField] private DialogueToken dialogueToken;
         
-
         private void Start()
         {
             dialogueService = ServiceLocator.GetService<DialogueService>();
@@ -22,7 +21,7 @@ namespace Tofu.TurnBased.NPC
 
         public override void Interaction()
         {
-            dialogueService.gameObject.SetActive(true);
+            dialogueService.VisibleUI();
             dialogueService.StartConversation(dialogueToken);
         }
     }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Tofu.TurnBased.Dialogue;
 using Tofu.TurnBased.Quests;
 using UnityEngine;
@@ -12,6 +13,8 @@ using UnityEngine.UIElements;
 public class DialogueService : ServiceBase<DialogueService>
 {
     private GameObject DialogueUi;
+    [SerializeField] TMP_Text nameText;
+    [SerializeField] TMP_Text dialogueText;
     
     private QuestManagementService quest;
     void Start() {
@@ -36,6 +39,7 @@ public class DialogueService : ServiceBase<DialogueService>
    public void StartConversation(DialogueToken dialogueTree)
     {
         DialogueProgress.TryAdd(dialogueTree, 0);
+        QuestDialogueProgress.TryAdd(dialogueTree, new Dictionary<QuestDialogue, bool>());
 
         QuestDialogue questDialogue = CheckForValidQuestDialogue(dialogueTree);
         if (questDialogue != null)
@@ -50,9 +54,10 @@ public class DialogueService : ServiceBase<DialogueService>
         
     }
 private QuestDialogue CheckForValidQuestDialogue(DialogueToken dialogueTree)
-    {
-        foreach (QuestDialogue dialogue in dialogueTree.QuestDialogue)
+{
+    foreach (QuestDialogue dialogue in dialogueTree.QuestDialogue)
         {
+            QuestDialogueProgress[dialogueTree].TryAdd(dialogue, false);
             if (!QuestDialogueProgress[dialogueTree][dialogue])
             {
                 if (dialogue.Conditions.activeQuest)
@@ -86,8 +91,8 @@ private QuestDialogue CheckForValidQuestDialogue(DialogueToken dialogueTree)
     {
         foreach (Conversation conversation in dialogueTree.Dialogue[DialogueProgress[dialogueTree]].Conversation)
         {
-            print(conversation.name);
-            print(conversation.script);
+            nameText.text = conversation.name;
+            dialogueText.text = conversation.script;
         }
         if (!dialogueTree.Dialogue[DialogueProgress[dialogueTree]].questRequiredAfterToAdvance &&
             DialogueProgress[dialogueTree] < dialogueTree.Dialogue.Count - 1)
@@ -100,8 +105,8 @@ private QuestDialogue CheckForValidQuestDialogue(DialogueToken dialogueTree)
     {
         foreach (Conversation conversation in questDialogue.Conversation)
         {
-            print(conversation.name);
-            print(conversation.script);
+            nameText.text = conversation.name;
+            dialogueText.text = conversation.script;
         }
 
         QuestDialogueProgress.TryAdd(dialogueTree,new Dictionary<QuestDialogue,bool>());
