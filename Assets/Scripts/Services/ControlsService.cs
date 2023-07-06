@@ -34,6 +34,7 @@ public class ControlsService : ServiceBase<ControlsService>
         else if (gameState.GetState() == GameStateService.GameState.Dialogue)
         {
             InteractInput();
+            StopDirectionalInput();
         }
         else if (gameState.GetState() == GameStateService.GameState.Menu)
         {
@@ -61,7 +62,6 @@ public class ControlsService : ServiceBase<ControlsService>
     }
     private void InteractInput()
     {
-        
         isInteractDown = Input.GetKeyDown("e");
     }
 
@@ -73,5 +73,13 @@ public class ControlsService : ServiceBase<ControlsService>
     private void MenuOpenInput()
     {
         isMenuDown = Input.GetKeyDown("tab");
+    }
+
+    private void StopDirectionalInput()
+    {
+        isUpDown = false;
+        isDownDown = false;
+        isLeftDown = false;
+        isRightDown = false;
     }
 }

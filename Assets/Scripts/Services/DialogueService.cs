@@ -18,6 +18,7 @@ public class DialogueService : ServiceBase<DialogueService>
     private QuestManagementService m_quest;
     private GameStateService m_gameState;
     private ControlsService m_controlsService;
+    TextMeshProUGUI textOverflow;
 
     void Start() {
         m_quest = ServiceLocator.GetService<QuestManagementService>();
@@ -117,10 +118,15 @@ public class DialogueService : ServiceBase<DialogueService>
         foreach (Conversation conversation in questDialogue.Conversation)
         {
             FillTextUI(conversation);
-            do
+            int totalPages = textOverflow.textInfo.pageCount;
+            for (int currentPage = 1; currentPage < totalPages; currentPage++)
             {
-                yield return null;
-            } while (!m_controlsService.isInteractDown);
+                textOverflow.pageToDisplay++;
+                do
+                {
+                    yield return null;
+                } while (!m_controlsService.isInteractDown);
+            }
         }
 
         QuestDialogueProgress.TryAdd(dialogueTree,new Dictionary<QuestDialogue,bool>());
@@ -135,6 +141,7 @@ public class DialogueService : ServiceBase<DialogueService>
         nameText.text = conversation.name;
         dialogueText.text = conversation.script;
     }
+    
 
     private void ExitDialogue()
     {
