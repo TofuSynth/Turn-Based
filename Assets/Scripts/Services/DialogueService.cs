@@ -98,11 +98,15 @@ public class DialogueService : ServiceBase<DialogueService>
         foreach (Conversation conversation in dialogueTree.Dialogue[DialogueProgress[dialogueTree]].Conversation)
         {
             FillTextUI(conversation);
-            do
+            int totalPages = textOverflow.textInfo.pageCount;
+            for (int currentPage = 1; currentPage < totalPages; currentPage++)
             {
-                yield return null;
-            } while (!m_controlsService.isInteractDown);
-            
+                textOverflow.pageToDisplay++;
+                do
+                {
+                    yield return null;
+                } while (!m_controlsService.isInteractDown);
+            }
 
         }
         if (!dialogueTree.Dialogue[DialogueProgress[dialogueTree]].questRequiredAfterToAdvance &&
