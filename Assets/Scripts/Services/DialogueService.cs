@@ -18,21 +18,20 @@ public class DialogueService : ServiceBase<DialogueService>
     private QuestManagementService m_quest;
     private GameStateService m_gameState;
     private ControlsService m_controlsService;
-    TextMeshProUGUI textOverflow;
-
+    
     void Start() {
         m_quest = ServiceLocator.GetService<QuestManagementService>();
         m_gameState = ServiceLocator.GetService<GameStateService>();
         m_controlsService = ServiceLocator.GetService<ControlsService>();
-        HideUI();
+        HideDialogueUi();
     }
 
-    public void VisibleUI()
+    public void MakeDialogueUIVisible()
     {
         this.gameObject.SetActive(true);
     }
 
-    void HideUI()
+    void HideDialogueUi()
     {
         this.gameObject.SetActive(false);
     }
@@ -98,10 +97,11 @@ public class DialogueService : ServiceBase<DialogueService>
         foreach (Conversation conversation in dialogueTree.Dialogue[DialogueProgress[dialogueTree]].Conversation)
         {
             FillTextUI(conversation);
-            int totalPages = textOverflow.textInfo.pageCount;
-            for (int currentPage = 1; currentPage < totalPages; currentPage++)
+            yield return null;
+            int totalPages = dialogueText.textInfo.pageCount;
+            for (int currentPage = 1; currentPage <= totalPages; currentPage++)
             {
-                textOverflow.pageToDisplay++;
+                dialogueText.pageToDisplay = currentPage;
                 do
                 {
                     yield return null;
@@ -122,10 +122,11 @@ public class DialogueService : ServiceBase<DialogueService>
         foreach (Conversation conversation in questDialogue.Conversation)
         {
             FillTextUI(conversation);
-            int totalPages = textOverflow.textInfo.pageCount;
-            for (int currentPage = 1; currentPage < totalPages; currentPage++)
+            yield return null;
+            int totalPages = dialogueText.textInfo.pageCount;
+            for (int currentPage = 1; currentPage <= totalPages; currentPage++)
             {
-                textOverflow.pageToDisplay++;
+                dialogueText.pageToDisplay = currentPage;
                 do
                 {
                     yield return null;
@@ -149,7 +150,7 @@ public class DialogueService : ServiceBase<DialogueService>
 
     private void ExitDialogue()
     {
-        HideUI();
+        HideDialogueUi();
         m_gameState.NormalState();
     }
 }

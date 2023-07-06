@@ -21,7 +21,7 @@ namespace Tofu.TurnBased.NPC
 
         public override void Interaction()
         {
-            dialogueService.VisibleUI();
+            dialogueService.MakeDialogueUIVisible();
             dialogueService.StartConversation(dialogueToken);
         }
     }

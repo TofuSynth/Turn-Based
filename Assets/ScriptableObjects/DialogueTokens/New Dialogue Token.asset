@@ -17,25 +17,7 @@ MonoBehaviour:
     m_questRequiredAfterToAdvance: 0
     m_conversation:
     - m_name: Tim
-      m_script: 'My Name Tim I really like my Name.
-
-
-        How are you Bob do
-        you like you rname?
-
-
-        My Name Jim I really like my Name.
-
-
-        How
-        are you Rob do you like you rname?
-
-
-        My Name Kim I really like my
-        Name.
-
-
-        How are you Job do you like you rname?'
+      m_script: My Name Tim.
     - m_name: Bob
       m_script: Hi Tim, my name Bob
   - m_dialogueStep: 1
