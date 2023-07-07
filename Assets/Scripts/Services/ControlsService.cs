@@ -10,13 +10,17 @@ public class ControlsService : ServiceBase<ControlsService>
 {
     private GameStateService gameState;
     [SerializeField] private GameObject gameStateService;
-    public bool isUpDown;
-    public bool isDownDown;
+    public bool isForwardDown;
+    public bool isBackDown;
     public bool isRightDown;
     public bool isLeftDown;
     public bool isInteractDown;
     public bool isCancelDown;
     public bool isMenuDown;
+    public bool isMenuUpDown;
+    public bool isMenuDownDown;
+    public bool isMenuRightDown;
+    public bool isMenuLeftDown;
 
     private void Start()
     {
@@ -41,24 +45,25 @@ public class ControlsService : ServiceBase<ControlsService>
             InteractInput();
             CancelInput();
             MenuDirectionInput();
+            StopDirectionalInput();
         }
         
     }
 
     private void MovementInput()
     {
-        isUpDown = Input.GetKey("w");
-        isDownDown = Input.GetKey("s");
+        isForwardDown = Input.GetKey("w");
+        isBackDown = Input.GetKey("s");
         isRightDown = Input.GetKey("d");
         isLeftDown = Input.GetKey("a");
     }
 
     private void MenuDirectionInput()
     {
-        isUpDown = Input.GetKeyDown("w");
-        isDownDown = Input.GetKeyDown("s");
-        isRightDown = Input.GetKeyDown("d");
-        isLeftDown = Input.GetKeyDown("a");
+        isMenuUpDown = Input.GetKeyDown("w");
+        isMenuDownDown = Input.GetKeyDown("s");
+        isMenuRightDown = Input.GetKeyDown("d");
+        isMenuLeftDown = Input.GetKeyDown("a");
     }
     private void InteractInput()
     {
@@ -77,8 +82,8 @@ public class ControlsService : ServiceBase<ControlsService>
 
     private void StopDirectionalInput()
     {
-        isUpDown = false;
-        isDownDown = false;
+        isForwardDown = false;
+        isBackDown = false;
         isLeftDown = false;
         isRightDown = false;
     }

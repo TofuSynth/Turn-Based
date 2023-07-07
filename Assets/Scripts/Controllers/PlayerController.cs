@@ -26,8 +26,8 @@ public class PlayerController : MonoBehaviour
     void Movement()
     {
         Vector3 inputVector = Vector3.zero;
-        float forwardMovement = Convert.ToInt32(m_controlsService.isUpDown) - 
-                                Convert.ToInt32(m_controlsService.isDownDown);
+        float forwardMovement = Convert.ToInt32(m_controlsService.isForwardDown) - 
+                                Convert.ToInt32(m_controlsService.isBackDown);
         float sideMovement = Convert.ToInt32(m_controlsService.isRightDown) -
                              Convert.ToInt32(m_controlsService.isLeftDown);
         
