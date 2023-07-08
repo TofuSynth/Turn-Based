@@ -1,19 +1,22 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Tofu.TurnBased.Inventory;
 using Tofu.TurnBased.Services;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     private ControlsService m_controlsService;
+    private InventoryService m_inventoryService;
     [SerializeField] private int m_speed;
     [SerializeField] private GameObject m_cameraHandler;
     private Rigidbody m_playerRigidBody;
     private Animator m_animations;
     void Start()
     {
-        m_controlsService = ServiceLocator.GetService<ControlsService>(); ;
+        m_controlsService = ServiceLocator.GetService<ControlsService>();
+        m_inventoryService = ServiceLocator.GetService<InventoryService>();
         m_playerRigidBody = this.GetComponent<Rigidbody>();
         m_animations = this.GetComponentInChildren<Animator>();
     }
@@ -21,6 +24,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Movement();
+        OpenMenu();
     }
 
     void Movement()
@@ -50,6 +54,14 @@ public class PlayerController : MonoBehaviour
         else
         {
             m_animations.Play(("KayKit Animated Character|Idle"));
+        }
+    }
+
+    void OpenMenu()
+    {
+        if (m_controlsService.isMenuDown)
+        {
+            m_inventoryService.MakeInventoryUIVisible();
         }
     }
 }
