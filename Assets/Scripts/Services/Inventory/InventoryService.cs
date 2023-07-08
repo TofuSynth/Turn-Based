@@ -53,10 +53,13 @@ namespace Tofu.TurnBased.Inventory
         public void CheckIfItemCompletesQuestConditional()
         {
             QuestManagementService m_questUpdate = ServiceLocator.GetService<QuestManagementService>();
-            foreach (QuestToken quest in m_questUpdate.activeQuests.Keys)
+            if (!m_questUpdate)
             {
-                m_questUpdate.CheckIfRequiredItemIsObtained(quest);;
-            }  
+                foreach (QuestToken quest in m_questUpdate.activeQuests.Keys)
+                {
+                    m_questUpdate.CheckIfRequiredItemIsObtained(quest);
+                }
+            }
         }
 
         public void RemoveItemFromInventory(UsableItemToken removeItem, int itemAmount)
@@ -69,21 +72,20 @@ namespace Tofu.TurnBased.Inventory
         }
 
         public void TestInventory()
-        {
-            foreach (var item in m_ownedUsableItems)
+        { 
+            for (int i = 0; i < listcontainer.childCount; i++)
+            {
+                Destroy(listcontainer.GetChild(i).gameObject);
+            } 
+            foreach (var item in m_ownedUsableItems) 
             {
                 InventoryListEntry entry = Instantiate(inventoryListEntrytemplate, listcontainer);
                 entry.SetLabels(item.Key.name, item.Value);
+                entry.gameObject.SetActive(true); 
             }
-        }
-
-        public void FillButtonInfo(Button button, TMP_Text name, TMP_Text amount)
-        {
-            Button itemButton = button;
-            TMP_Text itemName = name;
-            TMP_Text itemAmount = amount;
             
         }
+        
     }
     
 }
