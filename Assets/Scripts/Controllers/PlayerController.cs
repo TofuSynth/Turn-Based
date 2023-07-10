@@ -8,7 +8,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private ControlsService m_controlsService;
-    private InventoryService m_inventoryService;
+    private PlayerMenuService m_playerMenuService;
     [SerializeField] private int m_speed;
     [SerializeField] private GameObject m_cameraHandler;
     private Rigidbody m_playerRigidBody;
@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         m_controlsService = ServiceLocator.GetService<ControlsService>();
-        m_inventoryService = ServiceLocator.GetService<InventoryService>();
+        m_playerMenuService = ServiceLocator.GetService<PlayerMenuService>();
         m_playerRigidBody = this.GetComponent<Rigidbody>();
         m_animations = this.GetComponentInChildren<Animator>();
     }
@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
     {
         if (m_controlsService.isMenuDown)
         {
-            m_inventoryService.MakeInventoryUIVisible();
+            m_playerMenuService.MakeMenuUIVisible();
         }
     }
 }

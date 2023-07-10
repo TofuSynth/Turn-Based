@@ -71,7 +71,7 @@ namespace Tofu.TurnBased.Inventory
             }
         }
 
-        public void TestInventory()
+        public void FillInventoryUI()
         { 
             for (int i = 0; i < listcontainer.childCount; i++)
             {

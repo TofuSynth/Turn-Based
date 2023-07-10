@@ -33,7 +33,6 @@ namespace Tofu.TurnBased.Chests
                 m_chestToken.IsOpened = true;
                 m_chestTop.transform.Rotate(m_chestOpenAngle, 0, 0, Space.Self);
                 m_inventoryService.AddItemToInventory(m_Item, m_itemAmount);
-                m_inventoryService.TestInventory();
             }
         }
     }
