@@ -32,12 +32,14 @@ public class PlayerMenuService : ServiceBase<PlayerMenuService>
         {
             m_gameState.MenuState();
         }
+        Cursor.visible = true;
         this.gameObject.SetActive(true);
     }
 
     void CloseMenu()
     {
         m_gameState.NormalState();
+        Cursor.visible = false;
         HideMenuUI();
     }
 

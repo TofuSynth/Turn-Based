@@ -15,8 +15,10 @@ namespace Tofu.TurnBased.Inventory
         
         [SerializeField] private InventoryListEntry inventoryListEntrytemplate;
         [SerializeField] private Transform listcontainer;
+        private ControlsService m_controlsService;
+        private PlayerMenuService m_playerMenuService;
 
-        private Dictionary<UsableItemToken, int> m_ownedUsableItems = new Dictionary<UsableItemToken, int>();
+        private Dictionary<UsableItemToken, int> m_ownedUsableItems = new Dictionary<UsableItemToken, int>(); 
         public Dictionary<UsableItemToken, int> ownedUsableItems
         {
             get { return m_ownedUsableItems; }
@@ -24,7 +26,14 @@ namespace Tofu.TurnBased.Inventory
 
         public void Start()
         {
+            m_controlsService = ServiceLocator.GetService<ControlsService>();
+            m_playerMenuService = ServiceLocator.GetService<PlayerMenuService>();
             HideInventoryUI();
+        }
+
+        private void Update()
+        {
+            InventoryNavigation();
         }
 
         public void MakeInventoryUIVisible()
@@ -84,6 +93,14 @@ namespace Tofu.TurnBased.Inventory
                 entry.gameObject.SetActive(true); 
             }
             
+        }
+        void InventoryNavigation()
+        {
+            if (m_controlsService.isCancelDown)
+            {
+                m_playerMenuService.MakeMenuUIVisible();
+                HideInventoryUI();
+            }
         }
         
     }

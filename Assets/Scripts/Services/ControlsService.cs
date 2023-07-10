@@ -38,14 +38,14 @@ public class ControlsService : ServiceBase<ControlsService>
         else if (gameState.GetState() == GameStateService.GameState.Dialogue)
         {
             InteractInput();
-            StopDirectionalInput();
+            StopNormalStateInput();
         }
         else if (gameState.GetState() == GameStateService.GameState.Menu)
         {
             InteractInput();
             CancelInput();
             MenuDirectionInput();
-            StopDirectionalInput();
+            StopNormalStateInput();
         }
         
     }
@@ -80,8 +80,9 @@ public class ControlsService : ServiceBase<ControlsService>
         isMenuDown = Input.GetKeyDown("tab");
     }
 
-    private void StopDirectionalInput()
+    private void StopNormalStateInput()
     {
+        isMenuDown = false;
         isForwardDown = false;
         isBackDown = false;
         isLeftDown = false;
