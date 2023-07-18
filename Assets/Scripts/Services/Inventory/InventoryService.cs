@@ -5,6 +5,7 @@ using TMPro;
 using Tofu.TurnBased.Quests;
 using UnityEngine;
 using Tofu.TurnBased.Services;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Tofu.TurnBased.Inventory
@@ -17,8 +18,11 @@ namespace Tofu.TurnBased.Inventory
         [SerializeField] private Transform listcontainer;
         private ControlsService m_controlsService;
         private PlayerMenuService m_playerMenuService;
+        [SerializeField] private Button m_useItemButton;
         private bool m_useItemButtonPressed = false;
+        [SerializeField] private Button m_throwAwayItemButton;
         private bool m_throwAwayItemButtonPressed = false;
+        
 
         private Dictionary<UsableItemToken, int> m_ownedUsableItems = new Dictionary<UsableItemToken, int>(); 
         public Dictionary<UsableItemToken, int> ownedUsableItems
@@ -45,6 +49,7 @@ namespace Tofu.TurnBased.Inventory
 
         void HideInventoryUI()
         {
+            EventSystem.current.SetSelectedGameObject(null);
             this.gameObject.SetActive(false);
         }
         
@@ -101,6 +106,8 @@ namespace Tofu.TurnBased.Inventory
             if (m_controlsService.isCancelDown)
             {
                 m_playerMenuService.MakeMenuUIVisible();
+                m_throwAwayItemButtonPressed = false;
+                m_useItemButtonPressed = false;
                 HideInventoryUI();
             }
         }
@@ -122,10 +129,12 @@ namespace Tofu.TurnBased.Inventory
             if (m_useItemButtonPressed)
             {
                 UseItem();
+                EventSystem.current.SetSelectedGameObject(m_useItemButton.gameObject);
             }
             else if (m_throwAwayItemButtonPressed)
             {
                 ThrowAwayItem();
+                EventSystem.current.SetSelectedGameObject(m_throwAwayItemButton.gameObject);
             }
         }
 

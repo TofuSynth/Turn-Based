@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Tofu.TurnBased.Inventory;
 using Tofu.TurnBased.Services;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerMenuService : ServiceBase<PlayerMenuService>
 {
@@ -45,6 +46,7 @@ public class PlayerMenuService : ServiceBase<PlayerMenuService>
 
     void HideMenuUI()
     {
+        EventSystem.current.SetSelectedGameObject(null);
         this.gameObject.SetActive(false);
     }
     
