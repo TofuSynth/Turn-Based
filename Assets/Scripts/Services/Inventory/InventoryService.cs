@@ -96,7 +96,7 @@ namespace Tofu.TurnBased.Inventory
             foreach (var item in m_ownedUsableItems) 
             {
                 InventoryListEntry entry = Instantiate(inventoryListEntrytemplate, listcontainer);
-                entry.SetLabels(item.Key.name, item.Value);
+                entry.PopulateEntry(item.Key.name, item.Value, item.Key);
                 entry.gameObject.SetActive(true); 
             }
             
@@ -124,7 +124,7 @@ namespace Tofu.TurnBased.Inventory
             m_throwAwayItemButtonPressed = true;
         }
 
-        public void ItemButtonPressed()
+        public void ItemButtonPressed(InventoryListEntry listEntry)
         {
             if (m_useItemButtonPressed)
             {

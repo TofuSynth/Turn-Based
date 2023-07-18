@@ -496,6 +496,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &846534082 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8239341947372819570, guid: da35335bd0fa1874fa7a4a476db4f3d8, type: 3}
+  m_PrefabInstance: {fileID: 1838852180}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29da1bf3b0d7a334b8a8a261ed6395c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &983470545
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,7 +1077,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8239341947372819579, guid: da35335bd0fa1874fa7a4a476db4f3d8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8239341947372819579, guid: da35335bd0fa1874fa7a4a476db4f3d8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1085,8 +1096,12 @@ PrefabInstance:
       value: Tofu.TurnBased.Inventory.InventoryService, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8239341947372819579, guid: da35335bd0fa1874fa7a4a476db4f3d8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 846534082}
+    - target: {fileID: 8239341947372819579, guid: da35335bd0fa1874fa7a4a476db4f3d8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: Tofu.TurnBased.Inventory.InventoryListEntry, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8239341947372819580, guid: da35335bd0fa1874fa7a4a476db4f3d8, type: 3}
       propertyPath: m_useItemButton
