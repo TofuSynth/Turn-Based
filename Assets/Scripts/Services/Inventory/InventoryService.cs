@@ -17,6 +17,8 @@ namespace Tofu.TurnBased.Inventory
         [SerializeField] private Transform listcontainer;
         private ControlsService m_controlsService;
         private PlayerMenuService m_playerMenuService;
+        private bool m_useItemButtonPressed = false;
+        private bool m_throwAwayItemButtonPressed = false;
 
         private Dictionary<UsableItemToken, int> m_ownedUsableItems = new Dictionary<UsableItemToken, int>(); 
         public Dictionary<UsableItemToken, int> ownedUsableItems
@@ -102,7 +104,40 @@ namespace Tofu.TurnBased.Inventory
                 HideInventoryUI();
             }
         }
-        
+
+        public void UseItemButton()
+        {
+            m_throwAwayItemButtonPressed = false;
+            m_useItemButtonPressed = true;
+        }
+
+        public void ThrowAwayButtonPressed()
+        {
+            m_useItemButtonPressed = false;
+            m_throwAwayItemButtonPressed = true;
+        }
+
+        public void ItemButtonPressed()
+        {
+            if (m_useItemButtonPressed)
+            {
+                UseItem();
+            }
+            else if (m_throwAwayItemButtonPressed)
+            {
+                ThrowAwayItem();
+            }
+        }
+
+        void UseItem()
+        {
+            print("Item Used");
+        }
+
+        void ThrowAwayItem()
+        {
+            print("Item Thrown Away");
+        }
     }
     
 }

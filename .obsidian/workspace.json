@@ -8,29 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "e0c52bfd0c9e7630",
+            "id": "5b8dbaa87d95f5c4",
             "type": "leaf",
             "state": {
               "type": "canvas",
               "state": {
-                "file": "Obsidian/Mind Map.canvas",
+                "file": "Chat Thing for Comfy.canvas",
                 "viewState": {
-                  "x": 5742.7188312323,
-                  "y": -107.3644124151447,
-                  "zoom": -0.6575725009046076
+                  "x": 388.0873816400129,
+                  "y": 450.4763026336958,
+                  "zoom": -0.8333333333333333
                 }
-              }
-            }
-          },
-          {
-            "id": "5b8dbaa87d95f5c4",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Obsidian/Notes from Irshad/Working with Types/1. Generics and Type Variables.md",
-                "mode": "source",
-                "source": false
               }
             }
           }
@@ -108,7 +96,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Obsidian/Mind Map.canvas",
+                "file": "Chat Thing for Comfy.canvas",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -125,7 +113,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Obsidian/Mind Map.canvas",
+                "file": "Chat Thing for Comfy.canvas",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -148,7 +136,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Obsidian/Mind Map.canvas"
+                "file": "Chat Thing for Comfy.canvas"
               }
             }
           }
@@ -169,9 +157,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "e0c52bfd0c9e7630",
+  "active": "5b8dbaa87d95f5c4",
   "lastOpenFiles": [
     "Obsidian/Notes from Irshad/Working with Types/1. Generics and Type Variables.md",
+    "Chat Thing for Comfy.canvas",
+    "Untitled 1.md",
+    "Untitled.md",
+    "Obsidian/Mind Map.canvas",
+    "Untitled",
     "Library/TempArtifacts/Extra/6f765d411615e0344bfa55a2c01efa26",
     "Library/ProtocolInstance.json",
     "Temp/UnityTempFile-706cbbced2dfa444e8be6a5827d8795e",
@@ -181,7 +174,6 @@
     "Temp/UnityTempFile-d68fde620c2e58d46bb26f3fcab40d34",
     "Temp/UnityTempFile-b63762a2ad39e1d47848eba8810e620a",
     "Temp/UnityTempFile-de6a6ba46ba80e34c8134dd18992b3e3",
-    "Library/Artifacts/c4/c4391fb425238972618823198124e492",
     "Library/PackageCache/com.unity.ide.rider@3.0.21/Documentation~/images/preferences-settings-external-tools-window.png",
     "Library/PackageCache/com.unity.ide.rider@3.0.21/Documentation~/images/preferences-rider-tab.png",
     "Library/PackageCache/com.unity.ide.rider@3.0.21/Documentation~/using-the-jetbrains-rider-editor-package.md",
@@ -200,7 +192,6 @@
     "Assets/Models/Animations/KayKit Brand Resouces/KayKit_logo_white.png",
     "Assets/Models/Animations/KayKit Brand Resouces/KayKit_logo_red.png",
     "Obsidian/Notes from Irshad/Inheritance/Class Inheritance.md",
-    "Obsidian/Mind Map.canvas",
     "Obsidian/Notes from Irshad/Services/1. Service Locator.md",
     "Obsidian/Notes from Irshad/Services/2. Complex Services.md",
     "Obsidian/Notes from Irshad/Working with Types/3. Generic Constraints.md",
