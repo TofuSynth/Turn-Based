@@ -22,6 +22,8 @@ namespace Tofu.TurnBased.Inventory
         private bool m_useItemButtonPressed = false;
         [SerializeField] private Button m_throwAwayItemButton;
         private bool m_throwAwayItemButtonPressed = false;
+        [SerializeField] private GameObject characterInfoGameObject;
+        private UsableItemToken m_itemCurrentlySelected;
         
 
         private Dictionary<UsableItemToken, int> m_ownedUsableItems = new Dictionary<UsableItemToken, int>(); 
@@ -126,6 +128,21 @@ namespace Tofu.TurnBased.Inventory
 
         public void ItemButtonPressed(InventoryListEntry listEntry)
         {
+            SetCharacterButtonsToActive();
+            m_itemCurrentlySelected = listEntry.UsableItemToken;
+        }
+
+        public void SetCharacterButtonsToActive()
+        {
+            Button[] characterEntryButtons = characterInfoGameObject.GetComponentsInChildren<Button>();
+            foreach (Button button in characterEntryButtons)
+            {
+                button.interactable = true;
+            }
+        }
+
+        public void CharacterButtonPressed()
+        {
             if (m_useItemButtonPressed)
             {
                 UseItem();
@@ -135,6 +152,15 @@ namespace Tofu.TurnBased.Inventory
             {
                 ThrowAwayItem();
                 EventSystem.current.SetSelectedGameObject(m_throwAwayItemButton.gameObject);
+            }
+        }
+
+        public void SetCharacterButtonsToInactive()
+        {
+            Button[] characterEntryButtons = characterInfoGameObject.GetComponentsInChildren<Button>();
+            foreach (Button button in characterEntryButtons)
+            {
+                button.interactable = false;
             }
         }
 

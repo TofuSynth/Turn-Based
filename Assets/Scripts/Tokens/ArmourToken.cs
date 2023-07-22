@@ -3,16 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArmourToken : MonoBehaviour
+[CreateAssetMenu(menuName = "Tokens/Armour Token")]
+public class ArmourToken : ScriptableObject
 {
-    [CreateAssetMenu(menuName = "Tokens/Armour Token")]
-    public class WeaponToken : ScriptableObject
-    {
-        [SerializeField] List<Armour> m_armour;
-        public List<Armour> Armour
-        {
-            get { return m_armour; }
-        }
+    [SerializeField] List<Armour> m_armour;
+    public List<Armour> Armour 
+    { 
+        get { return m_armour; }
     }
 }
 

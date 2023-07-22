@@ -9,7 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 5872dea46bab5e44bae2cb8203576a5b, type: 3}
   m_Name: HeavyArmour
-  m_EditorClassIdentifier: Assembly-CSharp::ArmourToken/WeaponToken
-  m_armour: []
+  m_EditorClassIdentifier: 
+  m_armour:
+  - m_armourName: 
+    m_armourDescription: 
+    m_defense: 0
+    m_magicDefense: 0
+    m_magicIncreased: 0
+    m_wisdomIncreased: 0
+    m_speedIncreased: 0
+    m_luckIncreased: 0
+    m_buyPrice: 0
+    m_sellPrice: 0
