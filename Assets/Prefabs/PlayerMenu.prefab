@@ -795,6 +795,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_name: {fileID: 0}
+  m_portrait: {fileID: 0}
   m_hp: {fileID: 0}
   m_mp: {fileID: 0}
   m_partyMember: {fileID: 0}

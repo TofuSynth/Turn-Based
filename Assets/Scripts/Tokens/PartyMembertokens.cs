@@ -13,8 +13,8 @@ public class PartyMembertokens : ScriptableObject
     {
         get { return m_partyMemberName; }
     }
-    [SerializeField] private Texture2D m_characterPortrait;
-    public Texture2D CharacterPortrait
+    [SerializeField] private Sprite m_characterPortrait;
+    public Sprite CharacterPortrait
     {
         get { return m_characterPortrait; }
     }

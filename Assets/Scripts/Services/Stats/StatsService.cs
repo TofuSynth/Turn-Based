@@ -74,7 +74,7 @@ namespace Tofu.TurnBased.Stats
             }
         }
         
-        public void DisplayPortrait(Texture2D portrait, PartyMembertokens partyMember)
+        public void DisplayPortrait(Sprite portrait, PartyMembertokens partyMember)
         {
             portrait = partyMember.CharacterPortrait;
         }
