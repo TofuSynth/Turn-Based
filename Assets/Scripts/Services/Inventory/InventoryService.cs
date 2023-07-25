@@ -5,7 +5,9 @@ using TMPro;
 using Tofu.TurnBased.Quests;
 using UnityEngine;
 using Tofu.TurnBased.Services;
+using Tofu.TurnBased.Stats;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Tofu.TurnBased.Inventory
@@ -14,10 +16,13 @@ namespace Tofu.TurnBased.Inventory
     {
         private GameObject m_InventoryUi;
         
-        [SerializeField] private InventoryListEntry inventoryListEntrytemplate;
-        [SerializeField] private Transform listcontainer;
+        [SerializeField] private InventoryListEntry inventoryListEntryTemplate;
+        [SerializeField] private Transform listContainer;
+        [SerializeField] private StatsListEntry statsListEntryTemplate;
+        [SerializeField] private Transform statsContainer;
         private ControlsService m_controlsService;
         private PlayerMenuService m_playerMenuService;
+        private StatsService m_statsService;
         [SerializeField] private Button m_useItemButton;
         private bool m_useItemButtonPressed = false;
         [SerializeField] private Button m_throwAwayItemButton;
@@ -36,6 +41,7 @@ namespace Tofu.TurnBased.Inventory
         {
             m_controlsService = ServiceLocator.GetService<ControlsService>();
             m_playerMenuService = ServiceLocator.GetService<PlayerMenuService>();
+            m_statsService = ServiceLocator.GetService<StatsService>();
             HideInventoryUI();
         }
 
@@ -91,18 +97,23 @@ namespace Tofu.TurnBased.Inventory
 
         public void FillInventoryUI()
         { 
-            for (int i = 0; i < listcontainer.childCount; i++)
+            for (int i = 0; i < listContainer.childCount; i++)
             {
-                Destroy(listcontainer.GetChild(i).gameObject);
+                Destroy(listContainer.GetChild(i).gameObject);
             } 
             foreach (var item in m_ownedUsableItems) 
             {
-                InventoryListEntry entry = Instantiate(inventoryListEntrytemplate, listcontainer);
+                InventoryListEntry entry = Instantiate(inventoryListEntryTemplate, listContainer);
                 entry.PopulateEntry(item.Key.name, item.Value, item.Key);
                 entry.gameObject.SetActive(true); 
             }
-            
         }
+
+        public void FillCharacterStats()
+        {
+            m_statsService.PopulateCharacterStats(statsListEntryTemplate , statsContainer);
+        }
+        
         void InventoryNavigation()
         {
             if (m_controlsService.isCancelDown)

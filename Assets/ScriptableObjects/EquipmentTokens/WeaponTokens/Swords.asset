@@ -13,19 +13,19 @@ MonoBehaviour:
   m_Name: Swords
   m_EditorClassIdentifier: 
   m_weapons:
-  - m_weaponName: 
-    m_weaponDescription: 
-    m_damage: 0
+  - m_weaponName: Iron Sword
+    m_weaponDescription: A Basic Iron Sword
+    m_damage: 5
     m_magicIncreased: 0
     m_statIncreased: 
     m_statAmount: 0
-    m_buyPrice: 0
+    m_buyPrice: 10
     m_sellPrice: 0
-  - m_weaponName: 
-    m_weaponDescription: 
-    m_damage: 0
+  - m_weaponName: Soldier's Sword
+    m_weaponDescription: A mass produced sword  for the kingdom's army.
+    m_damage: 15
     m_magicIncreased: 0
     m_statIncreased: 
     m_statAmount: 0
-    m_buyPrice: 0
+    m_buyPrice: 20
     m_sellPrice: 0

@@ -54,6 +54,7 @@ public class PlayerMenuService : ServiceBase<PlayerMenuService>
     {
         m_inventoryService.FillInventoryUI();
         m_inventoryService.MakeInventoryUIVisible();
+        m_inventoryService.FillCharacterStats();
         HideMenuUI();
     }
 

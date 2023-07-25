@@ -402,6 +402,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8239341947372819580, guid: da35335bd0fa1874fa7a4a476db4f3d8, type: 3}
+      propertyPath: listContainer
+      value: 
+      objectReference: {fileID: 7532755661220869584}
+    - target: {fileID: 8239341947372819580, guid: da35335bd0fa1874fa7a4a476db4f3d8, type: 3}
+      propertyPath: statscontainer
+      value: 
+      objectReference: {fileID: 7532755661220869583}
     - target: {fileID: 8239341947372819583, guid: da35335bd0fa1874fa7a4a476db4f3d8, type: 3}
       propertyPath: m_Name
       value: InventoryService
@@ -412,3 +420,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da35335bd0fa1874fa7a4a476db4f3d8, type: 3}
+--- !u!224 &7532755661220869583 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7532755662150509786, guid: da35335bd0fa1874fa7a4a476db4f3d8, type: 3}
+  m_PrefabInstance: {fileID: 7532755661220869582}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &7532755661220869584 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7532755661900630874, guid: da35335bd0fa1874fa7a4a476db4f3d8, type: 3}
+  m_PrefabInstance: {fileID: 7532755661220869582}
+  m_PrefabAsset: {fileID: 0}
