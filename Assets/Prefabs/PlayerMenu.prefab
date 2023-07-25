@@ -794,10 +794,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679633efa22dbf94aa46f101694457ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_name: {fileID: 0}
-  m_portrait: {fileID: 0}
-  m_hp: {fileID: 0}
-  m_mp: {fileID: 0}
+  m_name: {fileID: 7526639644248885549}
+  m_portrait: {fileID: 7526639642487063522}
+  m_hp: {fileID: 7526639644563973378}
+  m_mp: {fileID: 7526639644247770237}
   m_partyMember: {fileID: 0}
 --- !u!1 &7526639643026206458
 GameObject:

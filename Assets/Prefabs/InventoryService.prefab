@@ -2488,6 +2488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_name: {fileID: 7532755661916916445}
+  m_portrait: {fileID: 7532755661830150637}
   m_hp: {fileID: 7532755661975361591}
   m_mp: {fileID: 7532755662310247361}
   m_partyMember: {fileID: 0}
