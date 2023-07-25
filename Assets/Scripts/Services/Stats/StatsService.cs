@@ -67,10 +67,10 @@ namespace Tofu.TurnBased.Stats
             } 
             foreach (var partyMember in m_partyMembers) 
             {
-                Instantiate(template, characterStats);
-                template.PopulateHPMP(m_partyMembers[partyMember.Key].currentHP, m_partyMembers[partyMember.Key].totalHP,
+                StatsListEntry entry = Instantiate(template, characterStats);
+                entry.PopulateHPMP(m_partyMembers[partyMember.Key].currentHP, m_partyMembers[partyMember.Key].totalHP,
                     m_partyMembers[partyMember.Key].currentMP, m_partyMembers[partyMember.Key].totalMP, partyMember.Key);
-                template.gameObject.SetActive(true); 
+                entry.gameObject.SetActive(true); 
             }
         }
         

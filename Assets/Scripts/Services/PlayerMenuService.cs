@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Tofu.TurnBased.Inventory;
 using Tofu.TurnBased.Services;
+using Tofu.TurnBased.Stats;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -12,12 +13,16 @@ public class PlayerMenuService : ServiceBase<PlayerMenuService>
     private GameStateService m_gameState;
     private InventoryService m_inventoryService;
     private ControlsService m_controlsService;
+    private StatsService m_statsService;
+    [SerializeField] private StatsListEntry statsListEntryTemplate;
+    [SerializeField] private Transform statsContainer;
     
     void Start()
     {
         m_gameState = ServiceLocator.GetService<GameStateService>();
         m_controlsService = ServiceLocator.GetService<ControlsService>();
         m_inventoryService = ServiceLocator.GetService<InventoryService>();
+        m_statsService = ServiceLocator.GetService<StatsService>();
         HideMenuUI();
         
     }
@@ -35,6 +40,7 @@ public class PlayerMenuService : ServiceBase<PlayerMenuService>
         }
         Cursor.visible = true;
         this.gameObject.SetActive(true);
+        FillCharacterStats();
     }
 
     void CloseMenu()
@@ -48,6 +54,11 @@ public class PlayerMenuService : ServiceBase<PlayerMenuService>
     {
         EventSystem.current.SetSelectedGameObject(null);
         this.gameObject.SetActive(false);
+    }
+    
+    public void FillCharacterStats()
+    {
+        m_statsService.PopulateCharacterStats(statsListEntryTemplate , statsContainer);
     }
     
     public void OpenInventoryUI()
