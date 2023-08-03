@@ -2,10 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Tofu.TurnBased.Inventory;
+using Tofu.TurnBased.SceneManagement;
 using Tofu.TurnBased.Services;
 using Tofu.TurnBased.Stats;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class PlayerMenuService : ServiceBase<PlayerMenuService>
 {
@@ -15,6 +17,10 @@ public class PlayerMenuService : ServiceBase<PlayerMenuService>
     private ControlsService m_controlsService;
     private EquipmentService m_equipmentService;
     private StatsService m_statsService;
+    private SkillService m_skillService;
+    private SaveService m_saveService;
+    private LoadService m_loadService;
+    [SerializeField] private SceneToken m_mainMenu;
     [SerializeField] private StatsListEntry statsListEntryTemplate;
     [SerializeField] private Transform statsContainer;
     
@@ -25,6 +31,9 @@ public class PlayerMenuService : ServiceBase<PlayerMenuService>
         m_inventoryService = ServiceLocator.GetService<InventoryService>();
         m_statsService = ServiceLocator.GetService<StatsService>();
         m_equipmentService = ServiceLocator.GetService<EquipmentService>();
+        m_skillService = ServiceLocator.GetService<SkillService>();
+        m_saveService = ServiceLocator.GetService<SaveService>();
+        m_loadService = ServiceLocator.GetService<LoadService>();
         HideMenuUI();
         
     }
@@ -75,6 +84,26 @@ public class PlayerMenuService : ServiceBase<PlayerMenuService>
     {
         m_equipmentService.MakeEquipmentUIVisible();
         HideMenuUI();
+    }
+
+    public void OpenSkillUI()
+    {
+        m_skillService.MakeSkillUIVisible();
+    }
+
+    public void OpenSaveUI()
+    {
+        m_saveService.MakeSaveUIVisible();
+    }
+
+    public void OpenLoadUI()
+    {
+        m_loadService.MakeLoadUIVisible();
+    }
+
+    public void QuitToMenu()
+    {
+        SceneManager.LoadScene(m_mainMenu.TargetSceneName);
     }
     
     void MenuNavigation()

@@ -1388,18 +1388,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 4ee040ce375c2e4468a0d6104efa8cc5, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 7526639644089164032}
+        m_TargetAssemblyTypeName: PlayerMenuService, Assembly-CSharp
+        m_MethodName: OpenEquipmentUI
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!1 &7526639643351961392
 GameObject:
   m_ObjectHideFlags: 0
@@ -2609,6 +2609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee040ce375c2e4468a0d6104efa8cc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_mainMenu: {fileID: 11400000, guid: d1bfcdc802e8ed246b654ddfbe89b39a, type: 2}
   statsListEntryTemplate: {fileID: 6334047364497830666}
   statsContainer: {fileID: 7526639642690951300}
 --- !u!1 &7526639644127754319
