@@ -13,6 +13,7 @@ public class PlayerMenuService : ServiceBase<PlayerMenuService>
     private GameStateService m_gameState;
     private InventoryService m_inventoryService;
     private ControlsService m_controlsService;
+    private EquipmentService m_equipmentService;
     private StatsService m_statsService;
     [SerializeField] private StatsListEntry statsListEntryTemplate;
     [SerializeField] private Transform statsContainer;
@@ -23,6 +24,7 @@ public class PlayerMenuService : ServiceBase<PlayerMenuService>
         m_controlsService = ServiceLocator.GetService<ControlsService>();
         m_inventoryService = ServiceLocator.GetService<InventoryService>();
         m_statsService = ServiceLocator.GetService<StatsService>();
+        m_equipmentService = ServiceLocator.GetService<EquipmentService>();
         HideMenuUI();
         
     }
@@ -69,6 +71,12 @@ public class PlayerMenuService : ServiceBase<PlayerMenuService>
         HideMenuUI();
     }
 
+    public void OpenEquipmentUI()
+    {
+        m_equipmentService.MakeEquipmentUIVisible();
+        HideMenuUI();
+    }
+    
     void MenuNavigation()
     {
         if (m_controlsService.isCancelDown)
