@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SaveService : ServiceBase<SaveService>
 {
-    // Start is called before the first frame update
     void Start()
     {
         HideSaveUI();

@@ -2,21 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkillService : ServiceBase<SkillService>
+namespace Tofu.TurnBased.Skills
 {
-    // Start is called before the first frame update
-    void Start()
+    public class SkillService : ServiceBase<SkillService>
     {
-        HideSkillUI();
-    }
+        void Start()
+        {
+            HideSkillUI();
+        }
 
-    void HideSkillUI()
-    {
-        this.gameObject.SetActive(false);
-    }
+        void HideSkillUI()
+        {
+            this.gameObject.SetActive(false);
+        }
 
-    public void MakeSkillUIVisible()
-    {
-        this.gameObject.SetActive(true);
+        public void MakeSkillUIVisible()
+        {
+            this.gameObject.SetActive(true);
+        }
     }
 }

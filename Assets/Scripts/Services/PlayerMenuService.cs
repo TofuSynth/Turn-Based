@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Tofu.TurnBased.Equipment;
 using Tofu.TurnBased.Inventory;
 using Tofu.TurnBased.SceneManagement;
 using Tofu.TurnBased.Services;
+using Tofu.TurnBased.Skills;
 using Tofu.TurnBased.Stats;
 using UnityEngine;
 using UnityEngine.EventSystems;

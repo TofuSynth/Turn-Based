@@ -4,19 +4,23 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class EquipmentService : ServiceBase<EquipmentService>
+namespace Tofu.TurnBased.Equipment
 {
-    private void Start()
+    public class EquipmentService : ServiceBase<EquipmentService>
     {
-        HideEquipmentUI();
-    }
+        private void Start()
+        {
+            HideEquipmentUI();
+        }
 
-    private void HideEquipmentUI()
-    {
-        this.gameObject.SetActive(false);
-    }
-    public void MakeEquipmentUIVisible()
-    {
-        this.gameObject.SetActive(true);
+        private void HideEquipmentUI()
+        {
+            this.gameObject.SetActive(false);
+        }
+
+        public void MakeEquipmentUIVisible()
+        {
+            this.gameObject.SetActive(true);
+        }
     }
 }
