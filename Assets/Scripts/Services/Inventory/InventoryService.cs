@@ -118,6 +118,7 @@ namespace Tofu.TurnBased.Inventory
         {
             if (m_controlsService.isCancelDown)
             {
+                UnselectButtons();
                 m_playerMenuService.MakeMenuUIVisible();
                 m_throwAwayItemButtonPressed = false;
                 m_useItemButtonPressed = false;
@@ -182,12 +183,23 @@ namespace Tofu.TurnBased.Inventory
         void UseItem()
         {
             print("Item Used");
+            UnselectButtons();
         }
 
         void ThrowAwayItem(UsableItemToken item)
         {
-            RemoveItemFromInventory(item, 1);
-            
+            RemoveItemFromInventory(item, 1); 
+            UnselectButtons();
+        }
+
+        void UnselectButtons()
+        {
+            SetCharacterButtonsToInactive();
+            m_itemCurrentlySelected = null;
+            m_useItemButtonPressed = false;
+            m_throwAwayItemButtonPressed = false;
+            m_throwAwayItemHighlight.SetActive(false);
+            m_useItemHighlight.SetActive(false);
         }
     }
     
