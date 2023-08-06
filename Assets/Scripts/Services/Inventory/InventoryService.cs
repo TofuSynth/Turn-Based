@@ -6,7 +6,6 @@ using Tofu.TurnBased.Quests;
 using UnityEngine;
 using Tofu.TurnBased.Services;
 using Tofu.TurnBased.Stats;
-using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -59,7 +58,6 @@ namespace Tofu.TurnBased.Inventory
 
         void HideInventoryUI()
         {
-            EventSystem.current.SetSelectedGameObject(null);
             this.gameObject.SetActive(false);
         }
         
@@ -107,7 +105,7 @@ namespace Tofu.TurnBased.Inventory
             {
                 InventoryListEntry entry = Instantiate(inventoryListEntryTemplate, listContainer);
                 entry.PopulateEntry(item.Key.name, item.Value, item.Key);
-                entry.gameObject.SetActive(true); 
+                entry.gameObject.SetActive(true);
             }
         }
 
@@ -162,12 +160,10 @@ namespace Tofu.TurnBased.Inventory
             if (m_useItemButtonPressed)
             {
                 UseItem();
-                EventSystem.current.SetSelectedGameObject(m_useItemButton.gameObject);
             }
             else if (m_throwAwayItemButtonPressed)
             {
                 ThrowAwayItem();
-                EventSystem.current.SetSelectedGameObject(m_throwAwayItemButton.gameObject);
             }
             
         }

@@ -17,7 +17,6 @@ namespace Tofu.TurnBased.Stats
         [SerializeField] private TMP_Text m_hp;
         [SerializeField] private TMP_Text m_mp;
         [SerializeField] private PartyMembertokens m_partyMember;
-        [SerializeField] private GameObject m_statsHighlight;
         public PartyMembertokens PartyMemberToken
         {
             get { return m_partyMember; }
