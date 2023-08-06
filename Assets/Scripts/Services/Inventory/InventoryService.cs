@@ -129,6 +129,7 @@ namespace Tofu.TurnBased.Inventory
         public void UseItemButton()
         {
             m_throwAwayItemButtonPressed = false;
+            m_throwAwayItemHighlight.SetActive(false);
             m_useItemButtonPressed = true;
             m_useItemHighlight.SetActive(true);
         }
@@ -136,6 +137,7 @@ namespace Tofu.TurnBased.Inventory
         public void ThrowAwayButtonPressed()
         {
             m_useItemButtonPressed = false;
+            m_useItemHighlight.SetActive(false);
             m_throwAwayItemButtonPressed = true;
             m_throwAwayItemHighlight.SetActive(true);
         }
