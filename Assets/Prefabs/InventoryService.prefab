@@ -3766,11 +3766,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryListEntryTemplate: {fileID: 8239341947372819570}
-  listContainer: {fileID: 7532755661900630874}
+  m_listContainer: {fileID: 7532755661900630874}
   statsListEntryTemplate: {fileID: 7327424853490224551}
-  statsContainer: {fileID: 7532755662150509786}
+  m_statsContainer: {fileID: 7532755662150509786}
   m_useItemButton: {fileID: 7532755660857862400}
   m_useItemHighlight: {fileID: 7509900705197826133}
   m_throwAwayItemButton: {fileID: 7532755662540658585}
   m_throwAwayItemHighlight: {fileID: 3098054984151206521}
-  characterInfoGameObject: {fileID: 7532755662358490972}

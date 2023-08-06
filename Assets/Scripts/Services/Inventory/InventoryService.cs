@@ -17,18 +17,16 @@ namespace Tofu.TurnBased.Inventory
         private ControlsService m_controlsService;
         private PlayerMenuService m_playerMenuService;
         private StatsService m_statsService;
-        
         [SerializeField] private InventoryListEntry inventoryListEntryTemplate;
-        [SerializeField] private Transform listContainer;
+        [SerializeField] private Transform m_listContainer;
         [SerializeField] private StatsListEntry statsListEntryTemplate;
-        [SerializeField] private Transform statsContainer;
+        [SerializeField] private Transform m_statsContainer;
         [SerializeField] private Button m_useItemButton;
         private bool m_useItemButtonPressed = false;
         [SerializeField] private GameObject m_useItemHighlight;
         [SerializeField] private Button m_throwAwayItemButton;
         [SerializeField] private GameObject m_throwAwayItemHighlight;
         private bool m_throwAwayItemButtonPressed = false;
-        [SerializeField] private GameObject characterInfoGameObject;
         private UsableItemToken m_itemCurrentlySelected;
         
 
@@ -48,6 +46,7 @@ namespace Tofu.TurnBased.Inventory
 
         private void Update()
         {
+            // Not actually expensive, if used the menu closes
             InventoryNavigation();
         }
 
@@ -97,13 +96,13 @@ namespace Tofu.TurnBased.Inventory
 
         public void FillInventoryUI()
         { 
-            for (int i = 0; i < listContainer.childCount; i++)
+            for (int i = 0; i < m_listContainer.childCount; i++)
             {
-                Destroy(listContainer.GetChild(i).gameObject);
+                Destroy(m_listContainer.GetChild(i).gameObject);
             } 
             foreach (var item in m_ownedUsableItems) 
             {
-                InventoryListEntry entry = Instantiate(inventoryListEntryTemplate, listContainer);
+                InventoryListEntry entry = Instantiate(inventoryListEntryTemplate, m_listContainer);
                 entry.PopulateEntry(item.Key.name, item.Value, item.Key);
                 entry.gameObject.SetActive(true);
             }
@@ -111,7 +110,7 @@ namespace Tofu.TurnBased.Inventory
 
         public void FillCharacterStats()
         {
-            m_statsService.PopulateCharacterStats(statsListEntryTemplate , statsContainer);
+            m_statsService.PopulateCharacterStats(statsListEntryTemplate , m_statsContainer);
         }
         
         void InventoryNavigation()
@@ -132,6 +131,7 @@ namespace Tofu.TurnBased.Inventory
             m_throwAwayItemHighlight.SetActive(false);
             m_useItemButtonPressed = true;
             m_useItemHighlight.SetActive(true);
+            SetItemButtonsToActive();
         }
 
         public void ThrowAwayButtonPressed()
@@ -140,8 +140,24 @@ namespace Tofu.TurnBased.Inventory
             m_useItemHighlight.SetActive(false);
             m_throwAwayItemButtonPressed = true;
             m_throwAwayItemHighlight.SetActive(true);
+            SetItemButtonsToActive();
         }
-
+        public void SetItemButtonsToActive()
+        {
+            Button[] itemEntryButtons = m_listContainer.GetComponentsInChildren<Button>();
+            foreach (Button button in m_listContainer)
+            {
+                button.interactable = true;
+            }
+        }
+        public void SetItemButtonsToInactive()
+        {
+            Button[] itemEntryButtons = m_listContainer.GetComponentsInChildren<Button>();
+            foreach (Button button in m_listContainer)
+            {
+                button.interactable = false;
+            }
+        }
         public void ItemButtonPressed(InventoryListEntry listEntry)
         {
             m_itemCurrentlySelected = listEntry.UsableItemToken;
@@ -158,7 +174,7 @@ namespace Tofu.TurnBased.Inventory
 
         public void SetCharacterButtonsToActive()
         {
-            Button[] characterEntryButtons = characterInfoGameObject.GetComponentsInChildren<Button>();
+            Button[] characterEntryButtons = m_statsContainer.GetComponentsInChildren<Button>();
             foreach (Button button in characterEntryButtons)
             {
                 button.interactable = true;
@@ -175,7 +191,7 @@ namespace Tofu.TurnBased.Inventory
 
         public void SetCharacterButtonsToInactive()
         {
-            Button[] characterEntryButtons = characterInfoGameObject.GetComponentsInChildren<Button>();
+            Button[] characterEntryButtons = m_statsContainer.GetComponentsInChildren<Button>();
             foreach (Button button in characterEntryButtons)
             {
                 button.interactable = false;
@@ -197,6 +213,7 @@ namespace Tofu.TurnBased.Inventory
         void UnselectButtons()
         {
             SetCharacterButtonsToInactive();
+            SetItemButtonsToInactive();
             m_itemCurrentlySelected = null;
             m_useItemButtonPressed = false;
             m_throwAwayItemButtonPressed = false;
