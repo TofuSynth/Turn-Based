@@ -23,6 +23,7 @@ namespace Tofu.TurnBased.Inventory
         [SerializeField] private Transform m_statsContainer;
         [SerializeField] private Button m_useItemButton;
         private bool m_useItemButtonPressed = false;
+        private InventoryListEntry m_itemButtonActive = null;
         [SerializeField] private GameObject m_useItemHighlight;
         [SerializeField] private Button m_throwAwayItemButton;
         [SerializeField] private GameObject m_throwAwayItemHighlight;
@@ -53,6 +54,7 @@ namespace Tofu.TurnBased.Inventory
         public void MakeInventoryUIVisible()
         {
             this.gameObject.SetActive(true);
+            UnselectButtons();
         }
 
         void HideInventoryUI()
@@ -145,7 +147,7 @@ namespace Tofu.TurnBased.Inventory
         public void SetItemButtonsToActive()
         {
             Button[] itemEntryButtons = m_listContainer.GetComponentsInChildren<Button>();
-            foreach (Button button in m_listContainer)
+            foreach (Button button in itemEntryButtons)
             {
                 button.interactable = true;
             }
@@ -153,13 +155,18 @@ namespace Tofu.TurnBased.Inventory
         public void SetItemButtonsToInactive()
         {
             Button[] itemEntryButtons = m_listContainer.GetComponentsInChildren<Button>();
-            foreach (Button button in m_listContainer)
+            foreach (Button button in itemEntryButtons)
             {
                 button.interactable = false;
             }
         }
         public void ItemButtonPressed(InventoryListEntry listEntry)
         {
+            if (m_itemButtonActive != null)
+            {
+                m_itemButtonActive.Unhighlight();
+            }
+            m_itemButtonActive = listEntry;
             m_itemCurrentlySelected = listEntry.UsableItemToken;
             if (m_throwAwayItemButtonPressed)
             {
@@ -201,17 +208,25 @@ namespace Tofu.TurnBased.Inventory
         void UseItem()
         {
             print("Item Used");
+            FillInventoryUI();
+            FillCharacterStats();
             UnselectButtons();
         }
 
         void ThrowAwayItem(UsableItemToken item)
         {
             RemoveItemFromInventory(item, 1); 
+            FillInventoryUI();
             UnselectButtons();
         }
 
         void UnselectButtons()
         {
+            if (m_itemButtonActive != null)
+            {
+                m_itemButtonActive.Unhighlight();
+            }
+            m_itemButtonActive = null;
             SetCharacterButtonsToInactive();
             SetItemButtonsToInactive();
             m_itemCurrentlySelected = null;
