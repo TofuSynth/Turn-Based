@@ -93,7 +93,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5778289026793046838
 RectTransform:
   m_ObjectHideFlags: 0
@@ -245,7 +245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8065895951499850057
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1679,7 +1679,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8239341947372819572
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1727,6 +1727,7 @@ MonoBehaviour:
   m_itemName: {fileID: 8239341947372819578}
   m_itemAmount: {fileID: 8239341947372819581}
   m_usableItemToken: {fileID: 0}
+  m_itemHighlight: {fileID: 623275636090802543}
 --- !u!114 &8239341947372819573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2758,7 +2759,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7532755662358490973
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2799,6 +2800,7 @@ MonoBehaviour:
   m_hp: {fileID: 7532755661975361591}
   m_mp: {fileID: 7532755662310247361}
   m_partyMember: {fileID: 0}
+  m_statsHighlight: {fileID: 4717434400445906288}
 --- !u!114 &8833191913901413465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3845,6 +3847,8 @@ MonoBehaviour:
   listContainer: {fileID: 7532755661900630874}
   statsListEntryTemplate: {fileID: 7327424853490224551}
   statsContainer: {fileID: 7532755662150509786}
-  m_useItemButton: {fileID: 0}
-  m_throwAwayItemButton: {fileID: 0}
-  characterInfoGameObject: {fileID: 0}
+  m_useItemButton: {fileID: 7532755660857862400}
+  m_useItemHighlight: {fileID: 7509900705197826133}
+  m_throwAwayItemButton: {fileID: 7532755662540658585}
+  m_throwAwayItemHighlight: {fileID: 3098054984151206521}
+  characterInfoGameObject: {fileID: 7532755662358490972}

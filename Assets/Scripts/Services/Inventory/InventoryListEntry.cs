@@ -12,6 +12,7 @@ namespace Tofu.TurnBased.Inventory
         [SerializeField] private TMP_Text m_itemName;
         [SerializeField] private TMP_Text m_itemAmount;
         [SerializeField] private UsableItemToken m_usableItemToken;
+        [SerializeField] private GameObject m_itemHighlight;
         public UsableItemToken UsableItemToken
         {
             get { return m_usableItemToken; }

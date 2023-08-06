@@ -15,17 +15,19 @@ namespace Tofu.TurnBased.Inventory
     public class InventoryService : ServiceBase<InventoryService>
     {
         private GameObject m_InventoryUi;
+        private ControlsService m_controlsService;
+        private PlayerMenuService m_playerMenuService;
+        private StatsService m_statsService;
         
         [SerializeField] private InventoryListEntry inventoryListEntryTemplate;
         [SerializeField] private Transform listContainer;
         [SerializeField] private StatsListEntry statsListEntryTemplate;
         [SerializeField] private Transform statsContainer;
-        private ControlsService m_controlsService;
-        private PlayerMenuService m_playerMenuService;
-        private StatsService m_statsService;
         [SerializeField] private Button m_useItemButton;
         private bool m_useItemButtonPressed = false;
+        [SerializeField] private GameObject m_useItemHighlight;
         [SerializeField] private Button m_throwAwayItemButton;
+        [SerializeField] private GameObject m_throwAwayItemHighlight;
         private bool m_throwAwayItemButtonPressed = false;
         [SerializeField] private GameObject characterInfoGameObject;
         private UsableItemToken m_itemCurrentlySelected;
@@ -129,18 +131,21 @@ namespace Tofu.TurnBased.Inventory
         {
             m_throwAwayItemButtonPressed = false;
             m_useItemButtonPressed = true;
+            m_useItemHighlight.SetActive(true);
         }
 
         public void ThrowAwayButtonPressed()
         {
             m_useItemButtonPressed = false;
             m_throwAwayItemButtonPressed = true;
+            m_throwAwayItemHighlight.SetActive(true);
         }
 
         public void ItemButtonPressed(InventoryListEntry listEntry)
         {
             SetCharacterButtonsToActive();
             m_itemCurrentlySelected = listEntry.UsableItemToken;
+            m_useItemHighlight.SetActive(true);
         }
 
         public void SetCharacterButtonsToActive()
@@ -164,6 +169,7 @@ namespace Tofu.TurnBased.Inventory
                 ThrowAwayItem();
                 EventSystem.current.SetSelectedGameObject(m_throwAwayItemButton.gameObject);
             }
+            
         }
 
         public void SetCharacterButtonsToInactive()
