@@ -23,6 +23,16 @@ namespace Tofu.TurnBased.Inventory
             m_itemName.text = itemName;
             m_itemAmount.text = itemAmount.ToString();
             m_usableItemToken = token;
+            Unhighlight();
+        }
+
+        public void Highlight()
+        {
+            m_itemHighlight.SetActive(true);
+        }
+
+        public void Unhighlight()
+        {
             m_itemHighlight.SetActive(false);
         }
     }

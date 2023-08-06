@@ -141,9 +141,16 @@ namespace Tofu.TurnBased.Inventory
 
         public void ItemButtonPressed(InventoryListEntry listEntry)
         {
-            SetCharacterButtonsToActive();
             m_itemCurrentlySelected = listEntry.UsableItemToken;
-            m_useItemHighlight.SetActive(true);
+            if (m_throwAwayItemButtonPressed)
+            {
+                ThrowAwayItem(m_itemCurrentlySelected);
+            }
+            else if (m_useItemButtonPressed)
+            {
+                SetCharacterButtonsToActive();
+                listEntry.Highlight();
+            }
         }
 
         public void SetCharacterButtonsToActive()
@@ -161,11 +168,6 @@ namespace Tofu.TurnBased.Inventory
             {
                 UseItem();
             }
-            else if (m_throwAwayItemButtonPressed)
-            {
-                ThrowAwayItem();
-            }
-            
         }
 
         public void SetCharacterButtonsToInactive()
@@ -182,9 +184,10 @@ namespace Tofu.TurnBased.Inventory
             print("Item Used");
         }
 
-        void ThrowAwayItem()
+        void ThrowAwayItem(UsableItemToken item)
         {
-            print("Item Thrown Away");
+            RemoveItemFromInventory(item, 1);
+            
         }
     }
     
