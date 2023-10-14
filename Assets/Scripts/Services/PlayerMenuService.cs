@@ -13,6 +13,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMenuService : ServiceBase<PlayerMenuService>
 {
+    [SerializeField] GameObject m_ServiceLocator;
     private GameObject m_playerMenu;
     private GameStateService m_gameState;
     private InventoryService m_inventoryService;
@@ -105,7 +106,9 @@ public class PlayerMenuService : ServiceBase<PlayerMenuService>
 
     public void QuitToMenu()
     {
+        HideMenuUI();
         SceneManager.LoadScene(m_mainMenu.TargetSceneName);
+        Destroy(m_ServiceLocator);
     }
     
     void MenuNavigation()

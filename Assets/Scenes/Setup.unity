@@ -815,6 +815,10 @@ PrefabInstance:
       propertyPath: m_playerMenu
       value: 
       objectReference: {fileID: 2095575716}
+    - target: {fileID: 7526639644089164032, guid: 9d4b10651abcb0a409e6e2a845fbf32c, type: 3}
+      propertyPath: m_ServiceLocator
+      value: 
+      objectReference: {fileID: 1679888456}
     - target: {fileID: 7526639644089164033, guid: 9d4b10651abcb0a409e6e2a845fbf32c, type: 3}
       propertyPath: m_Pivot.x
       value: 0
