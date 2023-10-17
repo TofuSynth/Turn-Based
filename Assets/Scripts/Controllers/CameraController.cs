@@ -13,9 +13,11 @@ public class CameraController : MonoBehaviour
     [SerializeField] float m_rotateSpeed;
     [SerializeField] private int m_damping;
     [SerializeField] private LayerMask worldLayer;
+    private GameStateService m_gameStateService;
 
     private void Start()
     {
+        m_gameStateService = ServiceLocator.GetService<GameStateService>();
         CursorSetup();
     }
 
@@ -28,7 +30,10 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        Rotation();
+        if (m_gameStateService.GetState() == GameStateService.GameState.Normal)
+        {
+            Rotation();
+        }
         ObstructionCheck();
     }
 
