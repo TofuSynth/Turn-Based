@@ -32,7 +32,6 @@ public class PopupService : ServiceBase<PopupService>
         // Temporary popup until items actually get used properly
         if (m_isUsedPopupOpen && Input.anyKeyDown)
         {
-            m_gameStateService.MenuState();
             m_itemUsedPopUp.SetActive(false);
             m_isUsedPopupOpen = false;
         }
