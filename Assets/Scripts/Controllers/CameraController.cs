@@ -7,12 +7,12 @@ using UnityEngine.Serialization;
 
 public class CameraController : MonoBehaviour
 {
-    public GameObject player;
-    public GameObject cameraHandler;
+    [SerializeField] private GameObject player;
+    [SerializeField] GameObject cameraHandler;
     [SerializeField] private float m_cameraDistance;
     [SerializeField] float m_rotateSpeed;
     [SerializeField] private int m_damping;
-    public LayerMask worldLayer;
+    [SerializeField] private LayerMask worldLayer;
 
     private void Start()
     {
@@ -28,10 +28,6 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        /*if !Paused
-        {
-        }
-        */
         Rotation();
         ObstructionCheck();
     }

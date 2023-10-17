@@ -17,6 +17,7 @@ namespace Tofu.TurnBased.Inventory
         private ControlsService m_controlsService;
         private PlayerMenuService m_playerMenuService;
         private StatsService m_statsService;
+        private PopupService m_popupService;
         [SerializeField] private InventoryListEntry inventoryListEntryTemplate;
         [SerializeField] private Transform m_listContainer;
         [SerializeField] private StatsListEntry statsListEntryTemplate;
@@ -29,6 +30,7 @@ namespace Tofu.TurnBased.Inventory
         [SerializeField] private GameObject m_throwAwayItemHighlight;
         private bool m_throwAwayItemButtonPressed = false;
         private UsableItemToken m_itemCurrentlySelected;
+
         
 
         private Dictionary<UsableItemToken, int> m_ownedUsableItems = new Dictionary<UsableItemToken, int>(); 
@@ -42,6 +44,7 @@ namespace Tofu.TurnBased.Inventory
             m_controlsService = ServiceLocator.GetService<ControlsService>();
             m_playerMenuService = ServiceLocator.GetService<PlayerMenuService>();
             m_statsService = ServiceLocator.GetService<StatsService>();
+            m_popupService = ServiceLocator.GetService<PopupService>();
             HideInventoryUI();
         }
 
@@ -72,6 +75,7 @@ namespace Tofu.TurnBased.Inventory
             {
                 m_ownedUsableItems[addItem] += itemAmount;
             }
+            m_popupService.ItemAddedPopup(addItem, itemAmount);
             CheckIfItemCompletesQuestConditional();
         }
 
@@ -207,7 +211,9 @@ namespace Tofu.TurnBased.Inventory
 
         void UseItem()
         {
-            print("Item Used");
+            m_popupService.ItemUsedPopup(m_itemCurrentlySelected);
+            RemoveItemFromInventory(m_itemCurrentlySelected, 1);
+            // Temporary popup until items actually get used properly
             FillInventoryUI();
             FillCharacterStats();
             UnselectButtons();
@@ -235,6 +241,7 @@ namespace Tofu.TurnBased.Inventory
             m_throwAwayItemHighlight.SetActive(false);
             m_useItemHighlight.SetActive(false);
         }
+        
     }
     
 }
