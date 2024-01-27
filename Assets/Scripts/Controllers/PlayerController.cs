@@ -23,10 +23,13 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Movement();
         OpenMenu();
     }
-
+    
+    void FixedUpdate()
+    {
+        Movement();
+    }
     void Movement()
     {
         Vector3 inputVector = Vector3.zero;

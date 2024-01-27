@@ -14,28 +14,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_questName: Our Journey Begins
   m_steps:
-  - key: state24920.steps0
+  - key: state32482.steps0
     m_description: I can see a house down the road, I should go see if anybody's
       home. Perhaps they know about that dragon we've been chasing.
     m_conditions:
-    - m_questCompleted:
-      - {fileID: 0}
-      m_speakTo:
-      - {fileID: 11400000, guid: 574a474492089d3419bdfd78092652df, type: 2}
-      m_areaVisited:
-      - {fileID: 0}
+      m_questCompleted: []
+      m_speakTo: []
+      m_areaVisited: []
       m_requiredKills:
         keyData: []
         valueData: 
       m_itemRequired:
         keyData: []
         valueData: 
-  - key: state24920.steps1
+    m_completeConditions:
+      m_speakTo: []
+      m_areaVisited: []
+      m_requiredKills:
+        keyData: []
+        valueData: 
+      m_itemRequired:
+        keyData: []
+        valueData: 
+    m_itemsRemovedUponCompletition:
+      m_itemsRemoved:
+        keyData: []
+        valueData: 
+    m_itemsRewardedUponCompletition:
+      m_itemsRewarded:
+        keyData: []
+        valueData: 
+  - key: state32482.steps1
     m_description: We met the king of this land! He explained that some skeletons
       chased him out of his castle and he asked us to go clear it out for him. He
       really could have been nicer though...
     m_conditions:
-    - m_questCompleted: []
+      m_questCompleted: []
       m_speakTo: []
       m_areaVisited: []
       m_requiredKills:
@@ -44,17 +58,51 @@ MonoBehaviour:
       m_itemRequired:
         keyData: []
         valueData: 
-  - key: state24920.steps2
+    m_completeConditions:
+      m_speakTo: []
+      m_areaVisited: []
+      m_requiredKills:
+        keyData: []
+        valueData: 
+      m_itemRequired:
+        keyData: []
+        valueData: 
+    m_itemsRemovedUponCompletition:
+      m_itemsRemoved:
+        keyData: []
+        valueData: 
+    m_itemsRewardedUponCompletition:
+      m_itemsRewarded:
+        keyData: []
+        valueData: 
+  - key: state32482.steps2
     m_description: We cleared out the castle! Now let's go see the King about our
       reward.
     m_conditions:
-    - m_questCompleted: []
+      m_questCompleted: []
       m_speakTo: []
       m_areaVisited: []
       m_requiredKills:
         keyData: []
         valueData: 
       m_itemRequired:
+        keyData: []
+        valueData: 
+    m_completeConditions:
+      m_speakTo: []
+      m_areaVisited: []
+      m_requiredKills:
+        keyData: []
+        valueData: 
+      m_itemRequired:
+        keyData: []
+        valueData: 
+    m_itemsRemovedUponCompletition:
+      m_itemsRemoved:
+        keyData: []
+        valueData: 
+    m_itemsRewardedUponCompletition:
+      m_itemsRewarded:
         keyData: []
         valueData: 
   m_completedQuestDescription: The King was thrilled to get his castle back. He gave

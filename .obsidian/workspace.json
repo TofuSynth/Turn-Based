@@ -11,8 +11,15 @@
             "id": "5b8dbaa87d95f5c4",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "canvas",
+              "state": {
+                "file": "Obsidian/Mind Map.canvas",
+                "viewState": {
+                  "x": 3292.815262354222,
+                  "y": 387.8463556609249,
+                  "zoom": -2.717350085229069
+                }
+              }
             }
           }
         ]
@@ -73,7 +80,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "be6da48fa599b6b6",
@@ -89,6 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Obsidian/Mind Map.canvas",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,6 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Obsidian/Mind Map.canvas",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +136,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Obsidian/Mind Map.canvas"
+              }
             }
           }
         ]
@@ -148,21 +160,22 @@
   },
   "active": "5b8dbaa87d95f5c4",
   "lastOpenFiles": [
+    "Temp/UnityTempFile-fad4d0d119c86804fb9eda2b3ed3dceb",
+    "Library/ProtocolInstance.json",
+    "Temp/UnityTempFile-d6ee946fda154b846bceeb6e7b488c3c",
+    "Temp/__Backupscenes/0.backup",
+    "Temp/UnityTempFile-2aeed883cb2969149b2fa087d6bb2632",
+    "Temp/__Backupscenes",
+    "Obsidian/Mind Map.canvas",
+    "Temp/UnityTempFile-70ebb92762334744386b4bd30f7e7f18",
+    "Temp/UnityTempFile-580eababea670174d8905c002c783e77",
+    "Library/Artifacts/08/081b120028e9eaf5ba7352679ecfdbb7",
+    "Library/TempArtifacts/Extra/3a0d3962e63bfaa43a3b488448c48fef",
+    "Logs/shadercompiler-AssetImportWorker0.log",
     "Obsidian/Notes from Irshad/Working with Types/1. Generics and Type Variables.md",
     "Chat Thing for Comfy.canvas",
     "Untitled 1.md",
     "Untitled.md",
-    "Obsidian/Mind Map.canvas",
-    "Untitled",
-    "Library/TempArtifacts/Extra/6f765d411615e0344bfa55a2c01efa26",
-    "Library/ProtocolInstance.json",
-    "Temp/UnityTempFile-706cbbced2dfa444e8be6a5827d8795e",
-    "Temp/UnityTempFile-631f85f6ae4d8274997d02800efe705d",
-    "Temp/UnityTempFile-d6b4ef75219ec6c4e93c1ffcc5d15e1d",
-    "Library/Artifacts/49/49dcfa98ce893dd718dcb93660f7cc4d",
-    "Temp/UnityTempFile-d68fde620c2e58d46bb26f3fcab40d34",
-    "Temp/UnityTempFile-b63762a2ad39e1d47848eba8810e620a",
-    "Temp/UnityTempFile-de6a6ba46ba80e34c8134dd18992b3e3",
     "Library/PackageCache/com.unity.ide.rider@3.0.21/Documentation~/images/preferences-settings-external-tools-window.png",
     "Library/PackageCache/com.unity.ide.rider@3.0.21/Documentation~/images/preferences-rider-tab.png",
     "Library/PackageCache/com.unity.ide.rider@3.0.21/Documentation~/using-the-jetbrains-rider-editor-package.md",

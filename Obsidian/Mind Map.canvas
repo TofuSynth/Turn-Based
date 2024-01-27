@@ -10,7 +10,7 @@
 		{"type":"text","text":"Go to the saved game's last saved scene, make sure the progress of quests, items, levels are all correct and then continue the flow.","id":"2462fc1771a36257","x":484,"y":519,"width":313,"height":115},
 		{"type":"text","text":"Go to the beginning of the game's first scene, then continue the flow.","id":"ad9c33dc8f117534","x":140,"y":519,"width":259,"height":121},
 		{"type":"text","text":"Towns and Dungeons are approachable.","id":"a9cb81b4fb7984de","x":2144,"y":143,"width":250,"height":60},
-		{"type":"text","text":"Towns","id":"832d162c95de5679","x":2217,"y":274,"width":105,"height":54,"color":"5"},
+		{"type":"text","text":"Towns","id":"832d162c95de5679","x":2213,"y":278,"width":109,"height":50,"color":"5"},
 		{"type":"text","text":"Once opened the chest needs to be marked open so that it can't be re-opened.","id":"bdfeb3627e178353","x":1171,"y":1289,"width":292,"height":115},
 		{"type":"text","text":"Chests may be locked and require a key/key item.","id":"e0d99cf2bf1e5cc7","x":1393,"y":1126,"width":250,"height":60},
 		{"type":"text","text":"Opening chests gives the players items.","id":"7c1a373ac3fc5723","x":1041,"y":1124,"width":250,"height":60},

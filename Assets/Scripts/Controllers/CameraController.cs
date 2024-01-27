@@ -34,6 +34,10 @@ public class CameraController : MonoBehaviour
         {
             Rotation();
         }
+    }
+
+    private void FixedUpdate()
+    {
         ObstructionCheck();
     }
 
